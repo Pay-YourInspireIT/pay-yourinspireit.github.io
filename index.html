@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Admin Panel | Log in | Your Inspire IT</title>
+    <title>Log In For Full Access | Your Inspire IT </title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: black;
+            background-image: url('https://i.postimg.cc/sx0XBJHz/b.jpg');
+            background-size: cover;
+            background-position: fixed;
             text-align: center;
             margin-top: 100px;
         }
@@ -74,6 +76,63 @@
             margin-right: auto;
             display: block;
         }
+        
+        
+       .note{
+           margin: 0 auto;
+           width: 70%;
+           
+       }
+       
+      .note p{
+          color: #fff;
+          background:#0000008a;
+          padding: 10px;
+          border-radius: 5px;
+      }
+      
+      
+      
+     .part1{
+         margin: 0 auto;
+         width: 70%;
+     }
+     
+     
+     
+     
+         .alert {
+      padding: 20px;
+      background-color: #ff1f00;
+      color: white;
+      font-size: 20px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      width: calc(100% - 40px);
+      max-width: 500px;
+      box-shadow: 0 0 20px #ff1f00 , 0 0 40px #ff1f00  ;
+      text-align: center;
+    }
+
+    .closebtn {
+      margin-left: 15px;
+      color: white;      
+      font-weight: bold;
+      float: right;
+      font-size: 22px;
+      line-height: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .closebtn:hover {
+      color: black;
+    }
     </style>
 </head>
 <body>
@@ -87,15 +146,29 @@
         <br>
         <input type="text" placeholder="Passkey">
         <br>
+        <input type="text" placeholder="Referral ID"><br>
         <button onclick="showPopup()">Log In</button>
     </form>
-    
-    <h1>Note: <b>Only Admin and Leader<br> can enter this page</b></h1>
+   <div class="part1">
+
+</div>
+<div class="note">
+    <p style="color: #11ff00;">এই ওয়েবসাইটের ফুল এক্সেস পেতে আপনার এক্টিভ করা একাউন্ট দিয়ে লগইন করুন ! আর আপনার যদি এক্টিভ করা একাউন্ট না থাকে তাহলে রেফারাল টিমের মাধ্যমে একাউন্ট খুলে একাউন্টটি এক্টিভ করে পুনরায় লগইন করার চেষ্টা করুন ! </p>
+</div>
+
+
+
+
+
+
 
     <script>
         function showPopup() {
-            alert("Access Denied");
+            alert("Warning ! Access Denied. ");
         }
+        
+        
+
     </script>
 </body>
 </html>
