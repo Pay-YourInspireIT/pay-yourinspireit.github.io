@@ -1,174 +1,417 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Log In For Full Access | Your Inspire IT </title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-image: url('https://i.postimg.cc/sx0XBJHz/b.jpg');
-            background-size: cover;
-            background-position: fixed;
-            text-align: center;
-            margin-top: 100px;
-        }
-        
-        form {
-            background-color: #fff;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: inline-block;
-        }
-        
-        input[type="text"],
-        input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        
-        button {
-            background-color: #007bff;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        
-        button:hover {
-            background-color: #0056b3;
-        }
-        
-        h1 {
-            margin-top: 50px;
-            color: white;
-        }
-        
-        b {
-            color: #007bff;
-        }
-        
-        @keyframes glow {
-            0% {
-                text-shadow: 0 0 10px #007bff, 0 0 20px #007bff;
-            }
-            50% {
-                text-shadow: 0 0 20px #007bff, 0 0 30px #007bff;
-            }
-            100% {
-                text-shadow: 0 0 10px #007bff, 0 0 20px #007bff;
-            }
-        }
-        
-        b {
-            animation: glow 1.5s infinite alternate;
-        }
-        
-        img{
-            height: 200px;
-            width: 200px;
-            margin-left: auto;
-            margin-right: auto;
-            display: block;
-        }
-        
-        
-       .note{
-           margin: 0 auto;
-           width: 70%;
-           
-       }
-       
-      .note p{
-          color: #fff;
-          background:#0000008a;
-          padding: 10px;
-          border-radius: 5px;
-      }
-      
-      
-      
-     .part1{
-         margin: 0 auto;
-         width: 70%;
-     }
-     
-     
-     
-     
-         .alert {
-      padding: 20px;
-      background-color: #ff1f00;
-      color: white;
-      font-size: 20px;
-      margin-bottom: 15px;
-      border-radius: 10px;
-      position: fixed;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 1000;
-      width: calc(100% - 40px);
-      max-width: 500px;
-      box-shadow: 0 0 20px #ff1f00 , 0 0 40px #ff1f00  ;
-      text-align: center;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Dark Themed Header</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@100..800&family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Megrim&family=Share:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Anonymous Pro", monospace;
+      background-color: #000;
+      color: #fff;
     }
 
-    .closebtn {
-      margin-left: 15px;
-      color: white;      
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background: #222;
+      box-shadow: 0 2px 10px #3bff00;
+      position: relative;
+      z-index: 999; /* Header will always stay on top */
+    }
+    .logo {
+      font-size: 1.8rem;
       font-weight: bold;
-      float: right;
-      font-size: 22px;
-      line-height: 20px;
-      cursor: pointer;
-      transition: 0.3s;
+      color: #3bff00;
+      font-family: "Megrim", serif;
     }
 
-    .closebtn:hover {
-      color: black;
+    .logo span {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #fff;
+      font-family: "Megrim", serif;
     }
-    </style>
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    nav ul li {
+      position: relative;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 1.1rem;
+      padding: 10px 15px;
+      display: flex;
+      align-items: center;
+      transition: color 0.3s ease;
+    }
+    nav ul li a i {
+      margin-right: 8px;
+      color: #3bff00;
+    }
+    nav ul li a:hover {
+      color: #3bff00;
+    }
+    nav ul li::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background-color: #3bff00;
+      transition: width 0.4s ease;
+    }
+    nav ul li:hover::after {
+      width: 100%;
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      color: #3bff00;
+      cursor: pointer;
+    }
+    @media (max-width: 768px) {
+      nav ul {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #222;
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        padding: 0;
+        box-shadow: 0 0 30px #3bff00;
+      }
+      nav ul.active {
+        display: flex;
+      }
+      nav ul li {
+        width: 100%;
+        text-align: left;
+        border-bottom: 1px solid #333;
+      }
+      nav ul li:first-child {
+        margin-top: 20px;
+      }
+      .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 20px;
+      }
+    }
+
+    .btn {
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      margin: 0 0 50px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .btn a {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 30px;
+      padding: 10px;
+      letter-spacing: 1px;
+      text-decoration: none;
+      overflow: hidden;
+      color: #fff;
+      font-weight: 400px;
+      z-index: 1;
+      transition: 0.5s;
+      backdrop-filter: blur(15px);
+    }
+    .btn:hover a {
+      letter-spacing: 3px;
+    }
+    .btn a::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(to left, rgba(255, 255, 255, 0.15), transparent);
+      transform: skewX(45deg) translate(0);
+      transition: 0.5s;
+      filter: blur(0px);
+    }
+    .btn:hover a::before {
+      transform: skewX(45deg) translate(200px);
+    }
+    .btn::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translatex(-50%);
+      bottom: -5px;
+      width: 30px;
+      height: 10px;
+      background: #f00;
+      border-radius: 10px;
+      transition: 0.5s;
+      transition-delay: 0.5;
+    }
+    .btn:hover::before {
+      bottom: 0;
+      height: 50%;
+      width: 80%;
+      border-radius: 30px;
+    }
+    .btn::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translatex(-50%);
+      top: -5px;
+      width: 30px;
+      height: 10px;
+      background: #f00;
+      border-radius: 10px;
+      transition: 0.5s;
+      transition-delay: 0.5;
+    }
+    .btn:hover::after {
+      top: 0;
+      height: 50%;
+      width: 80%;
+      border-radius: 30px;
+    }
+    .btn:nth-child(1)::before, .btn:nth-child(1)::after {
+      background: #ff1f71;
+      box-shadow: 0 0 5px #ff1f71, 0 0 15px #ff1f71, 0 0 30px #ff1f71, 0 0 60px #ff1f71;
+    }
+    .btn:nth-child(2)::before, .btn:nth-child(2)::after {
+      background: #2db2ff;
+      box-shadow: 0 0 5px #2db2ff, 0 0 15px #2db2ff, 0 0 30px #2db2ff, 0 0 60px #2db2ff;
+    }
+    .btn:nth-child(3)::before, .btn:nth-child(3)::after {
+      background: #1eff45;
+      box-shadow: 0 0 5px #1eff45, 0 0 15px #1eff45, 0 0 30px #1eff45, 0 0 60px #1eff45;
+    }
+    .mb {
+      margin: 30px 5% 0 5%;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+      
+    }
+    
+    .ht{
+        margin: 30px 5% 50px 5%;
+        text-align: center;
+        color: #00ffff;
+        font-size: 70px;
+        font-family: "Share", serif;
+    }
+    
+   .ht b{
+       color: #3bff00;
+       text-shadow: 0 0 30px #3bff00;
+       font-family: "Megrim", serif;
+   }
+   
+  
+   .fa {
+     
+ 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 20px;
+     font-family: "Anonymous Pro", monospace;
+    }
+
+    .faq-section {
+      width: 100%;
+      max-width: 800px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px) saturate(200%) contrast(130%);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 0px 30px #3bff00, inset 0 0 20px #3bff00;
+      border: 1px solid #3bff00;
+    }
+
+    .faq-header {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #3bff00;
+      font-size: 2rem;
+      position: relative;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 20px 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .faq-item-header h3 {
+      font-size: 1.2rem;
+      color: #fff;
+    }
+
+    .faq-item-header i {
+      font-size: 1.5rem;
+      color: #00ffb0;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active i {
+      transform: rotate(180deg);
+    }
+
+    .faq-item-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      padding-top: 15px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .faq-item.active .faq-item-content {
+      max-height: 200px;
+    }
+
+    @media (max-width: 768px) {
+      .faq-header {
+        font-size: 1.5rem;
+      }
+      .faq-item-header h3 {
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <a href="#"><img src="https://i.postimg.cc/nVvDBPP5/Yi-logo.png"></a>
+  <header>
+    <div class="logo">Pay<span>YourInspireIT</span></div>
+    <nav>
+      <ul>
+        <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="#"><i class="fas fa-wallet"></i>Withdraw</a></li>
+        <li><a href="#"><i class="fas fa-user-check"></i>Active Account</a></li>
+        <li><a href="#"><i class="fas fa-sign-in-alt"></i>Log In</a></li>
+        <li><a href="#"><i class="fas fa-sitemap"></i>Main Site</a></li>
+      </ul>
+    </nav>
+    <i class="fas fa-bars menu-toggle"></i>
+  </header>
+  
+  <section class="ht">
+      Welcome To <br><b>YourInspireIT</b> Wallet ! 
+  </section>
+
+  <section class="mb">
+    <div class="btn"><a href="#"> <i class="fas fa-home"></i> &nbsp; Withdraw Money </a></div>
+    <div class="btn"><a href="#"><i class="fas fa-user-check"></i> &nbsp; Active Account</a></div>
+    <div class="btn"><a href="#"><i class="fas fa-sitemap"></i> &nbsp; Main Site</a></div>
+  </section>
+
+
+
+ <section class="fa">
+  <div class="faq-section">
+    <div class="faq-header">Frequently Asked Questions</div>
     
-    <br><br>
-    <form action="#" method="post" onsubmit="return false;">
-        <input type="text" placeholder="User ID">
-        <br>
-        <input type="password" placeholder="Password">
-        <br>
-        <input type="text" placeholder="Passkey">
-        <br>
-        <input type="text" placeholder="Referral ID"><br>
-        <button onclick="showPopup()">Log In</button>
-    </form>
-   <div class="part1">
+    <div class="faq-item">
+      <div class="faq-item-header">
+        <h3><i class="fas fa-question-circle"></i> What is your return policy?</h3>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-item-content">
+        <p>Our return policy allows you to return items within 30 days of purchase. Please ensure that the items are unused and in their original packaging.</p>
+      </div>
+    </div>
 
-</div>
-<div class="note">
-    <p style="color: #11ff00;">এই ওয়েবসাইটের ফুল এক্সেস পেতে আপনার এক্টিভ করা একাউন্ট দিয়ে লগইন করুন ! আর আপনার যদি এক্টিভ করা একাউন্ট না থাকে তাহলে রেফারাল টিমের মাধ্যমে একাউন্ট খুলে একাউন্টটি এক্টিভ করে পুনরায় লগইন করার চেষ্টা করুন ! </p>
-</div>
+    <div class="faq-item">
+      <div class="faq-item-header">
+        <h3><i class="fas fa-question-circle"></i> How do I track my order?</h3>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-item-content">
+        <p>You can track your order by logging into your account and viewing your order history. Tracking information will be provided once your order is shipped.</p>
+      </div>
+    </div>
 
+    <div class="faq-item">
+      <div class="faq-item-header">
+        <h3><i class="fas fa-question-circle"></i> Do you offer international shipping?</h3>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-item-content">
+        <p>Yes, we offer international shipping to most countries. Shipping charges and delivery times vary depending on the destination.</p>
+      </div>
+    </div>
 
+    <div class="faq-item">
+      <div class="faq-item-header">
+        <h3><i class="fas fa-question-circle"></i> How can I contact customer service?</h3>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-item-content">
+        <p>You can contact our customer service team via email or phone. Visit our contact page for more details.</p>
+      </div>
+    </div>
+  </div>
+</section>
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const nav = document.querySelector("nav ul");
 
+    menuToggle.addEventListener("click", () => {
+      nav.classList.toggle("active");
+    });
+    
+    const faqItems = document.querySelectorAll('.faq-item');
 
-
-
-
-    <script>
-        function showPopup() {
-            alert("Warning ! Access Denied. ");
-        }
-        
-        
-
-    </script>
+    faqItems.forEach(item => {
+      item.addEventListener('click', () => {
+        item.classList.toggle('active');
+      });
+    });
+  </script>
 </body>
 </html>
