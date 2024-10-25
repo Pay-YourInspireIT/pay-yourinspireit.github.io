@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Responsive Dark Themed Header</title>
+  <title>Pay - Your Inspire IT : Your YI Wallet  | Withdraw Your Own Money  | Your Inspire IT</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
  <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@100..800&family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Megrim&family=Share:ital,wght@0,400;0,700;1,400;1,700&family=Sora:wght@100..800&display=swap" rel="stylesheet">
+ <link rel="icon" href="https://i.postimg.cc/ZRc76Fqb/In-Shot-20241024-202136364.png" type="image/png">
   <style>
     * {
       margin: 0;
@@ -243,13 +244,13 @@
    
   
    .fa {
-     
+     font-family: "Anek Bangla", serif;
  
       display: flex;
       justify-content: center;
       align-items: center;
       padding: 0 20px;
-     font-family: "Anonymous Pro", monospace;
+    
     }
 
     .faq-section {
@@ -330,7 +331,7 @@
    }
   .w .he{
       text-align: center;
-      font-family: "Anek-Bangla", serif; 
+      font-family: "Anek Bangla", serif;
       color: #3bff00;
       font-size: 50px;
       
@@ -396,7 +397,7 @@
 
 .fr {
     margin: 0;
-    font-family: 'Robot', sans-serif;
+   
 }
 
 footer {
@@ -404,7 +405,7 @@ footer {
     color: #fff;
     padding: 20px;
     text-align: center;
-    font-family: 'Robot', sans-serif;
+  
     border-radius: 0 100px 0 100px;
     border: 2px solid #3bff00;
     margin-right: 1%;
@@ -638,7 +639,7 @@ footer img {
     }
 }
 
-media(max-width: 650px){
+media(max-width: 700px){
  
 footer{
     border-radius: 0 70px 0 70px;
@@ -651,15 +652,76 @@ footer img {
     
     
 .left {
-    margin-right: 65px;
+    margin-right: 35px;
     margin-bottom: 20px; /* Move image downwards */
 }
 
 .right {
-    padding-left: 100px;
+    padding-left: 50px;
     /* Blue line between image and links */
 }
 }
+
+
+/* Popup container */
+    .popup-container {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 0.5s ease;
+      z-index: 9999;
+    }
+    
+    /* Popup box */
+    .popup-box {
+      position: relative;
+      background: #fff;
+      width: 90%;
+      
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 20px #fff;
+      text-align: center;
+      animation: scaleUp 0.4s ease;
+    }
+
+    /* Image styling */
+    .popup-box img {
+      width: auto;
+      height: 250px;
+      object-fit: cover;
+      margin-bottom: 15px;
+      border-radius: 25px;
+      
+    }
+
+    /* Title and subtitle styling */
+    .popup-title { font-size: 1.5em; color: #333; margin-bottom: 8px; }
+    .popup-subtitle { font-size: 1em; color: #666; margin-bottom: 20px; }
+
+    /* Close icon styling */
+    .close-popup {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.2em;
+      color: #333;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .close-popup:hover { color: #f00; }
+
+    /* Animation keyframes */
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes scaleUp { from { transform: scale(0.7); } to { transform: scale(1); } }
+
+    /* Responsive adjustments */
+    @media (max-width: 500px) {
+      .popup-box { width: 90%; padding: 15px; }
+    }
   </style>
 </head>
 <body>
@@ -713,17 +775,17 @@ footer img {
 </section>
 
 
- <section class="fa">
+ <section class="fa" style="display: none;">
   <div class="faq-section">
     <div class="faq-header">Frequently Asked Questions</div>
     
     <div class="faq-item">
       <div class="faq-item-header">
-        <h3><i class="fas fa-question-circle"></i> What is your return policy?</h3>
+        <h3><i class="fas fa-question-circle"></i> Your Inspire IT এর পরিচয় কী ? </h3>
         <i class="fas fa-chevron-down"></i>
       </div>
       <div class="faq-item-content">
-        <p>Our return policy allows you to return items within 30 days of purchase. Please ensure that the items are unused and in their original packaging.</p>
+        <p>&nbsp; <br>Your Inspire IT হচ্ছে এমন একটি অনলাইন বেইসড ই-কমার্স প্রতিষ্ঠান যেখানে আপনি সহজ  ।  এখানে বিভিন্ন কাজ রয়েছে । </p>
       </div>
     </div>
 
@@ -737,6 +799,49 @@ footer img {
       </div>
     </div>
 
+    <div class="faq-item">
+      <div class="faq-item-header">
+        <h3><i class="fas fa-question-circle"></i> Do you offer international shipping?</h3>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-item-content">
+        <p>Yes, we offer international shipping to most countries. Shipping charges and delivery times vary depending on the destination.</p>
+      </div>
+    </div>
+    
+    
+    <div class="faq-item">
+      <div class="faq-item-header">
+        <h3><i class="fas fa-question-circle"></i> Do you offer international shipping?</h3>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-item-content">
+        <p>Yes, we offer international shipping to most countries. Shipping charges and delivery times vary depending on the destination.</p>
+      </div>
+    </div>
+    
+    
+    <div class="faq-item">
+      <div class="faq-item-header">
+        <h3><i class="fas fa-question-circle"></i> Do you offer international shipping?</h3>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-item-content">
+        <p>Yes, we offer international shipping to most countries. Shipping charges and delivery times vary depending on the destination.</p>
+      </div>
+    </div>
+    
+    
+    <div class="faq-item">
+      <div class="faq-item-header">
+        <h3><i class="fas fa-question-circle"></i> Do you offer international shipping?</h3>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-item-content">
+        <p>Yes, we offer international shipping to most countries. Shipping charges and delivery times vary depending on the destination.</p>
+      </div>
+    </div>
+    
     <div class="faq-item">
       <div class="faq-item-header">
         <h3><i class="fas fa-question-circle"></i> Do you offer international shipping?</h3>
@@ -823,17 +928,26 @@ footer img {
         </div>
         <div class="right">
             <ul><br><br>
-                <li><a href="#">YI Main</a></li>
                 <li><a href="#">Withdraw</a></li>
+                <li><a href="#">Active Account</a></li>
+                <li><a href="#">Main Site</a></li>
+                <li><a href="#">Join With Us</a></li>
+                <li><a href="#">Give Work</a></li>
                 <li><a href="#">FAQ</a></li>
-                <li><a href="#">Account Active</a></li>
-                <li><a href="#">Running Team</a></li>
-                <li><a href="#">Join Team</a></li>
             </ul>
         </div><hr><br><br>
-        <p>© All Rights Reserved to Your Inspire IT 2022-2024</p>
+        <p>© All Rights Reserved to Your Inspire IT 2022-2024 | V6 </p>
     </footer>
     
+    <div class="popup-container" id="popup">
+  <div class="popup-box">
+    <span class="close-popup" onclick="closePopup()"><i class="fas fa-times"></i></span>
+    <img src="https://i.postimg.cc/MKHDp8wP/4dc8e489-97fd-4adb-9d7f-d1c39a221e46.jpg" alt="Popup Image">
+    <div class="popup-title"><i class="fas fa-info-circle"></i>  &nbsp; Website is Under Maintenance ! </div>
+    <div class="popup-subtitle">Pay-YourInspireIT সহো আমাদের সকল Website এর আপগ্রেডশন চলছে ।  সকল সিস্টেম এবং ফাংশন সঠিক ভাবে কাজ নাও করতে পারে । শীগ্রই আপডেট শেষ হয়ে যাবে । তবে Withdraw এবং Active Account এর সকল সিস্টেম ভালোভাবে কাজ করবে, এতে কোনো সমস্যা হবে না । ধন্যবাদ :)</div>
+  </div>
+</div>
+
     
   <script>
     const menuToggle = document.querySelector(".menu-toggle");
@@ -850,6 +964,19 @@ footer img {
         item.classList.toggle('active');
       });
     });
+    
+    
+    // Show popup after 2 seconds
+  window.onload = function() {
+    setTimeout(function() {
+      document.getElementById('popup').style.display = 'flex';
+    }, 2000);
+  };
+
+  // Close popup function
+  function closePopup() {
+    document.getElementById('popup').style.display = 'none';
+  }
     
     
   </script>
