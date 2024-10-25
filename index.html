@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Responsive Dark Themed Header</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@100..800&family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Megrim&family=Share:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@100..800&family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Megrim&family=Share:ital,wght@0,400;0,700;1,400;1,700&family=Sora:wght@100..800&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -15,7 +15,7 @@
       box-sizing: border-box;
     }
     body {
-      font-family: "Anonymous Pro", monospace;
+      font-family: "Sora", sans-serif;
       background-color: #000;
       color: #fff;
     }
@@ -323,6 +323,287 @@
         font-size: 1rem;
       }
     }
+    
+    
+   .w{
+       margin: 70px 5% 50px 5%;
+   }
+  .w .he{
+      text-align: center;
+      font-family: "Anek-Bangla", serif; 
+      color: #3bff00;
+      font-size: 50px;
+      
+  }
+  
+ .he b{
+     text-shadow: 0 0 30px #3bff00;
+ }
+ 
+.wc{
+    width: 100%;
+    
+    border: 1px solid #00ff03;
+    border-radius: 0 20px 0 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    
+}
+
+.wc:hover{
+    box-shadow: 0 0 40px #3bff00;
+    transform: translateY(20px);
+   
+    transition: 1s;
+    
+}
+
+.wc img{
+    width: auto;
+    height: 250px;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+}
+
+.wc p{
+    margin: 20px 5% 0 5%;
+     font-family: "Anek-Bangla", serif; 
+     font-size: 25px;
+}
+
+.wc p b {
+    font-family: "Megrim", serif;
+    color: #3bff00;
+}
+.wc button{
+    margin: 20px 0 20px 10%;
+    background: #3bff00;
+    color: #000;
+    border: none;
+    padding: 10px 20px 10px 20px;
+    border-radius: 0 10px  0 10px;
+    
+}
+
+.wc button:hover{
+    box-shadow: 0 0 30px #3bff00;
+    transition: 0.5s;
+}
+
+
+
+
+.fr {
+    margin: 0;
+    font-family: 'Robot', sans-serif;
+}
+
+footer {
+    background-color: #00000024;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-family: 'Robot', sans-serif;
+    border-radius: 0 100px 0 100px;
+    border: 2px solid #3bff00;
+    margin-right: 1%;
+    box-shadow: 0 0 50px #3bff00;
+    margin-top: 50px;
+    backdrop-filter: blur(10px);
+}
+
+.left, .right {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.left {
+    margin-right: 100px;
+    margin-bottom: 20px; /* Move image downwards */
+}
+
+.right {
+    padding-left: 190px;
+    /* Blue line between image and links */
+}
+
+footer img {
+    width: 220px; /* Increase image size */
+    height: auto;
+    display: block;
+    margin: 10px auto;
+    filter: drop-shadow(0 0 30px #3bff00);
+     /* Center image and add top and bottom margin */
+}
+
+   
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer ul li {
+    margin-bottom: 10px; /* Add space between list items */
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: normal; /* Set initial font weight */ 
+    transition: font-weight 0.3s; 
+    font-size: 25px;
+}
+
+/* Animated Hover Effect */
+footer a:hover {
+    animation: linkHover 0.5s ease-in-out forwards;
+    color: #00ff96;
+    text-shadow: 0 0 20px rgba(0, 255, 0, 0.5), 0 0 40px rgba(0, 255, 0, 0.5);
+    font-width: bold;
+}
+
+@keyframes linkHover {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+@media(max-width: 400px){
+    .left {
+    margin-right: 10px;
+    margin-bottom: 20px; /* Move image downwards */
+}
+
+.right {
+    padding-left: 10px;
+    /* Blue line between image and links */
+}
+}
+
+@media(max-width: 600px){
+    .left {
+    margin-right: 20px;
+    margin-bottom: 20px; /* Move image downwards */
+}
+
+.right {
+    padding-left: 20px;
+    /* Blue line between image and links */
+}
+}
+
+.dai{
+    display: flex;
+    justify-content: center;
+    align-item: center;
+    gap: 20px;
+}
+
+.dai img{
+    width: auto;
+    height: 150px;
+}
+
+.da{
+    margin: 50px 5% 0 5%;
+}
+.da h1{
+    text-align: center;
+    color: #3bff00;
+    text-shadow: 0 0 30px #3bff00;
+    font-size: 45px;
+    margin-bottom: 35px;
+}
+
+.r{
+         margin: 50px 5% 0 5%;
+     }
+     
+    .r h1{
+        text-align: center;
+        color: #3bff00;
+        text-shadow : 0 0 30px #3bff00;
+        font-size: 35px;
+    }
+   .ra {
+      margin: 0;
+    
+      
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      overflow: hidden;
+    }
+
+    .rcontainer {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      width: 90%;
+      max-width: 1200px;
+    }
+
+    .box {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 30px;
+      backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 10px black;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    .box:hover {
+      transform: translateY(-10px);
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .ricon {
+      font-size: 50px;
+      margin-bottom: 15px;
+      color: #3bff00;
+      animation: bounce 1.5s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .box h3 {
+      font-size: 24px;
+      margin: 10px 0;
+    }
+
+    .box p {
+      font-size: 18px;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 768px) {
+      .rcontainer {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -350,6 +631,30 @@
     <div class="btn"><a href="#"><i class="fas fa-sitemap"></i> &nbsp; Main Site</a></div>
   </section>
 
+
+<section class="w">
+    <div class="he">
+        <b>এখানে কী করতে পারবেন ? </b>
+    </div>
+    <div class="wc">
+        <img src="https://i.postimg.cc/pThf3sHp/Pngtree-question-mark-businessman-vector-task-5162877.png" >
+        <p><b>Pay-YourInspireIT</b> সাইটটি হচ্ছে একজন <b>Your Inspire IT</b> User এর Wallet  ।  এখানে সে সকল প্রকার লেনদেন করতে পারবে ।  এখানে User তার একাউন্টের ব্যালেন্স দেখতে পারবে ।  এবং টাকাও তুলতে পারবে । এ সাইটটি একদম সুরক্ষিত এবং <b>Your Inspire IT</b> এর অফিশিয়াল Wallet সাইট । </p>
+        <a href="https://pay-yourinspireit.github.io/#fa"><button><i class="fas fa-compass"></i> &nbsp; Explore</button></a>
+    </div>
+    
+    <div class="wc">
+        <img src="https://i.postimg.cc/8PZWCdcw/Picsart-24-10-24-12-17-44-777.png" >
+        <p>এই সাইটে <b>Your Inspire IT</b> থেকে আপনার ইনকামের টাকা তুলতে পারবেন ।  শুধু মাত্র কয়েকটি স্টেপ ফলো করে ।  সর্বনিম্ন উইথড্র ১০০ টাকা ! </p>
+        <a href="#"><button><i class="fas fa-wallet"></i> &nbsp; Withdraw</button></a>
+    </div>
+    
+    
+    <div class="wc">
+        <img src="https://i.postimg.cc/MTx1g30w/Pngtree-3d-online-verified-flat-logo-18387926.png" >
+        <p>একজন নতুন ইউজার কে তার <b>Your Inspire IT</b> একাউন্টটি এক্টিভ করতে হয় ।  এক্টিভ করার জন্য ৪০ টাকা তার নিজ একাউন্টে ডিপোজিট করতে হয় । এই সাইট থেকে নতুন একজন ইউজার তার নিজ একাউন্ট এক্টিভ করতে পারবে । </p>
+        <a href="#"><button><i class="fas fa-user-check"></i> &nbsp; Active Account</button></a>
+    </div>
+</section>
 
 
  <section class="fa">
@@ -397,6 +702,83 @@
     </div>
   </div>
 </section>
+<section class="da">
+    <h1>We Are... Gained</h1>
+    <div class="dai">
+          <img src="https://i.postimg.cc/k59kVGTN/Picsart-24-10-25-06-51-32-684.png" alt="Trust Pilot">
+        <img src="https://i.postimg.cc/yxbHcKD1/Picsart-24-10-24-22-01-37-901.png" alt="Scame Adviser ">
+        </div>
+        <div class="dai">
+            
+        <img src="https://i.postimg.cc/HL8XGFPc/Picsart-24-10-24-21-28-57-530.png" alt="DMCA">
+        <img src="https://i.postimg.cc/9Mx5H2td/Picsart-24-10-24-22-00-36-005.png" alt="Trusted">
+      
+    </div>
+    </section>
+    
+    
+    <section class="r">
+        <h1>We Have...</h1>
+    
+    <div class="ra">
+
+  <div class="rcontainer">
+    <div class="box">
+      <i class="fas fa-users ricon"></i>
+      <h3>1600+ Daily Active Members</h3>
+      <p>Engaged community interacting every day.</p>
+    </div>
+    
+    <div class="box">
+      <i class="fas fa-user-friends ricon"></i>
+      <h3>Total 4800+ Members</h3>
+      <p>Growing network of trusted members.</p>
+    </div>
+    
+    <div class="box">
+      <i class="fas fa-briefcase ricon"></i>
+      <h3>130+ Clients</h3>
+      <p>Satisfied clients working with us.</p>
+    </div>
+    
+    <div class="box">
+      <i class="fas fa-user-plus ricon"></i>
+      <h3>28+ Referral Members</h3>
+      <p>People recommending us through referrals.</p>
+    </div>
+    
+    <div class="box">
+      <i class="fas fa-tasks ricon"></i>
+      <h3>9+ Works</h3>
+      <p>For Our Client or Members :)</p>
+    </div>
+  </div>
+</div>
+
+</section>
+
+
+
+<footer>
+        <div class="left">
+            <a href="https://yrinspireit.github.io/">
+                <img src="https://i.postimg.cc/ZRc76Fqb/In-Shot-20241024-202136364.png">
+            </a>
+        </div>
+        <div class="right">
+            <ul><br><br>
+                <li><a href="#">YI Main</a></li>
+                <li><a href="#">Withdraw</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Account Active</a></li>
+                <li><a href="#">Running Team</a></li>
+                <li><a href="#">Join Team</a></li>
+            </ul>
+        </div><hr><br><br>
+        <p>© All Rights Reserved to Your Inspire IT 2022-2024</p>
+    </footer>
+    
+    
   <script>
     const menuToggle = document.querySelector(".menu-toggle");
     const nav = document.querySelector("nav ul");
@@ -412,6 +794,8 @@
         item.classList.toggle('active');
       });
     });
+    
+    
   </script>
 </body>
 </html>
