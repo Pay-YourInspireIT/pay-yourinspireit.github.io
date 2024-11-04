@@ -21,6 +21,67 @@
       color: #fff;
     }
 
+
+
+
+    .popup-container {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 0.5s ease;
+      z-index: 9999;
+    }
+    
+    /* Popup box */
+    .popup-box {
+      position: relative;
+      background: #fff;
+      width: 90%;
+      
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 20px #fff;
+      text-align: center;
+      animation: scaleUp 0.4s ease;
+    }
+
+    /* Image styling */
+    .popup-box img {
+      width: auto;
+      height: 250px;
+      object-fit: cover;
+      margin-bottom: 15px;
+      border-radius: 25px;
+      
+    }
+
+    /* Title and subtitle styling */
+    .popup-title { font-size: 1.5em; color: #333; margin-bottom: 8px; }
+    .popup-subtitle { font-size: 1em; color: #666; margin-bottom: 20px; }
+
+    /* Close icon styling */
+    .close-popup {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.2em;
+      color: #333;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .close-popup:hover { color: #f00; }
+
+    /* Animation keyframes */
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes scaleUp { from { transform: scale(0.7); } to { transform: scale(1); } }
+
+    /* Responsive adjustments */
+    @media (max-width: 500px) {
+      .popup-box { width: 90%; padding: 15px; }
+    }
     header {
       display: flex;
       justify-content: space-between;
@@ -395,75 +456,6 @@
 
 
 
-.fr {
-    margin: 0;
-   
-}
-
-footer {
-    background-color: #00000024;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-  
-    border-radius: 0 100px 0 100px;
-    border: 2px solid #3bff00;
-    margin-right: 1%;
-    box-shadow: 0 0 50px #3bff00;
-    margin-top: 50px;
-    backdrop-filter: blur(10px);
-}
-
-.left, .right {
-    display: inline-block;
-    vertical-align: top;
-}
-
-.left {
-    margin-right: 100px;
-    margin-bottom: 20px; /* Move image downwards */
-}
-
-.right {
-    padding-left: 190px;
-    /* Blue line between image and links */
-}
-
-footer img {
-    width: 220px; /* Increase image size */
-    height: auto;
-    display: block;
-    margin: 10px auto;
-    filter: drop-shadow(0 0 30px #3bff00);
-     /* Center image and add top and bottom margin */
-}
-
-   
-footer ul {
-    list-style: none;
-    padding: 0;
-}
-
-footer ul li {
-    margin-bottom: 10px; /* Add space between list items */
-}
-
-footer a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: normal; /* Set initial font weight */ 
-    transition: font-weight 0.3s; 
-    font-size: 25px;
-}
-
-/* Animated Hover Effect */
-footer a:hover {
-    animation: linkHover 0.5s ease-in-out forwards;
-    color: #00ff96;
-    text-shadow: 0 0 20px rgba(0, 255, 0, 0.5), 0 0 40px rgba(0, 255, 0, 0.5);
-    font-width: bold;
-}
-
 @keyframes linkHover {
     0% {
         transform: scale(1);
@@ -477,29 +469,169 @@ footer a:hover {
 }
 
 
-@media(max-width: 400px){
-    .left {
-    margin-right: 10px;
-    margin-bottom: 20px; /* Move image downwards */
-}
+ footer {
+            background: linear-gradient(-240deg, #000, #000b73, #000);
+            color: #ddd;
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 1.5s ease;
+        }
 
-.right {
-    padding-left: 10px;
-    /* Blue line between image and links */
-}
-}
+        /* Footer grid layout */
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-@media(max-width: 600px){
-    .left {
-    margin-right: 20px;
-    margin-bottom: 20px; /* Move image downwards */
-}
+        /* Footer columns styling */
+        .footer-column {
+            position: relative;
+        }
 
-.right {
-    padding-left: 20px;
-    /* Blue line between image and links */
-}
-}
+        .footer-column h3 {
+            margin-bottom: 20px;
+            color: #fff;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+
+        .footer-column p, .footer-links a, .social-icons a {
+            line-height: 1.8;
+            font-size: 14px;
+            color: #bbb;
+            transition: all 0.3s;
+        }
+
+        /* Social icons */
+        .social-icons a {
+            margin-right: 10px;
+            color: #ddd;
+            display: inline-block;
+            font-size: 20px;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #09f;
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        /* Footer links */
+        .footer-links a {
+            display: block;
+            margin: 8px 0;
+            text-decoration: none;
+            color: #00ffea;
+        }
+
+        .footer-links a:hover {
+            color: #3bff00;
+            text-decoration: underline;
+            transform: translateX(5px);
+        }
+
+        /* Subscribe form */
+        .subscribe-form {
+            display: flex;
+            align-items: center;
+        }
+
+        .subscribe-form input[type="email"] {
+            padding: 10px;
+            border: 2px solid #09f;
+            outline: none;
+            border-radius: 20px 0 0 20px;
+            width: 100%;
+            background: #444;
+            color: #fff;
+        }
+
+        .subscribe-form button {
+            padding: 10px;
+            background: #09f;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 0 20px 20px 0;
+            transition: all 0.3s;
+        }
+
+        .subscribe-form button:hover {
+            background: #06d;
+            transform: scale(1.1);
+        }
+
+        #subscribeMessage {
+            margin-top: 10px;
+            color: #09f;
+            font-size: 14px;
+        }
+
+        /* Footer bottom bar */
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #444;
+            padding: 20px;
+            margin-top: 30px;
+            font-size: 14px;
+        }
+
+        .footer-bottom a {
+            color: #09f;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        /* Back to Top button */
+        #backToTop {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #09f;
+            color: #fff;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 18px;
+        }
+
+        #backToTop:hover {
+            transform: scale(1.2);
+        }
+
+        /* Responsive layout */
+        @media (max-width: 768px) {
+            .footer-grid {
+                gap: 20px;
+            }
+            .footer-column:not(:last-child)::after {
+                display: none;
+            }
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+            
+           
+        }
+        
+       .footer-column img{
+           width: auto;
+           height: 100px;
+       }
+       
+      .footer-column b{
+          color: #3bff00;
+          font-family: "Megrim", serif;
+      }
 
 .dai{
     display: flex;
@@ -629,99 +761,179 @@ footer a:hover {
 .r h1{
     font-size: font-size: 30px;
 }
-footer{
-    border-radius: 0 50px 0 50px;
-    margin-left: 1%;
-}
-
-footer img {
-    width: 180px;
-    }
-}
-
-media(max-width: 700px){
- 
-footer{
-    border-radius: 0 70px 0 70px;
-    margin-left: 1%;
-}
-
-footer img {
-    width: 200px;
-    }
-    
-    
-.left {
-    margin-right: 35px;
-    margin-bottom: 20px; /* Move image downwards */
-}
-
-.right {
-    padding-left: 50px;
-    /* Blue line between image and links */
-}
-}
 
 
-/* Popup container */
-    .popup-container {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.6);
-      justify-content: center;
-      align-items: center;
-      animation: fadeIn 0.5s ease;
-      z-index: 9999;
-    }
-    
-    /* Popup box */
-    .popup-box {
-      position: relative;
-      background: #fff;
-      width: 90%;
+ footer {
+            background: linear-gradient(-240deg, #000, #000b73, #000);
+            color: #ddd;
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 1.5s ease;
+        }
+
+        /* Footer grid layout */
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Footer columns styling */
+        .footer-column {
+            position: relative;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 20px;
+            color: #fff;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+
+        .footer-column p, .footer-links a, .social-icons a {
+            line-height: 1.8;
+            font-size: 14px;
+            color: #bbb;
+            transition: all 0.3s;
+        }
+
+        /* Social icons */
+        .social-icons a {
+            margin-right: 10px;
+            color: #ddd;
+            display: inline-block;
+            font-size: 20px;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #09f;
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        /* Footer links */
+        .footer-links a {
+            display: block;
+            margin: 8px 0;
+            text-decoration: none;
+            color: #00ffea;
+        }
+
+        .footer-links a:hover {
+            color: #3bff00;
+            text-decoration: underline;
+            transform: translateX(5px);
+        }
+
+        /* Subscribe form */
+        .subscribe-form {
+            display: flex;
+            align-items: center;
+        }
+
+        .subscribe-form input[type="email"] {
+            padding: 10px;
+            border: 2px solid #09f;
+            outline: none;
+            border-radius: 20px 0 0 20px;
+            width: 100%;
+            background: #444;
+            color: #fff;
+        }
+
+        .subscribe-form button {
+            padding: 10px;
+            background: #09f;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 0 20px 20px 0;
+            transition: all 0.3s;
+        }
+
+        .subscribe-form button:hover {
+            background: #06d;
+            transform: scale(1.1);
+        }
+
+        #subscribeMessage {
+            margin-top: 10px;
+            color: #09f;
+            font-size: 14px;
+        }
+
+        /* Footer bottom bar */
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #444;
+            padding: 20px;
+            margin-top: 30px;
+            font-size: 14px;
+        }
+
+        .footer-bottom a {
+            color: #09f;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        /* Back to Top button */
+        #backToTop {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #09f;
+            color: #fff;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 18px;
+        }
+
+        #backToTop:hover {
+            transform: scale(1.2);
+        }
+
+        /* Responsive layout */
+        @media (max-width: 768px) {
+            .footer-grid {
+                gap: 20px;
+            }
+            .footer-column:not(:last-child)::after {
+                display: none;
+            }
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+            
+           
+        }
+        
+       .footer-column img{
+           width: auto;
+           height: 100px;
+       }
+       
+      .footer-column b{
+          color: #3bff00;
+          font-family: "Megrim", serif;
+      }
       
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0px 4px 20px #fff;
-      text-align: center;
-      animation: scaleUp 0.4s ease;
-    }
-
-    /* Image styling */
-    .popup-box img {
-      width: auto;
-      height: 250px;
-      object-fit: cover;
-      margin-bottom: 15px;
-      border-radius: 25px;
       
-    }
+      
 
-    /* Title and subtitle styling */
-    .popup-title { font-size: 1.5em; color: #333; margin-bottom: 8px; }
-    .popup-subtitle { font-size: 1em; color: #666; margin-bottom: 20px; }
-
-    /* Close icon styling */
-    .close-popup {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      font-size: 1.2em;
-      color: #333;
-      cursor: pointer;
-      transition: color 0.2s;
-    }
-    .close-popup:hover { color: #f00; }
-
-    /* Animation keyframes */
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    @keyframes scaleUp { from { transform: scale(0.7); } to { transform: scale(1); } }
-
-    /* Responsive adjustments */
-    @media (max-width: 500px) {
-      .popup-box { width: 90%; padding: 15px; }
-    }
+    
+    
+    
+    
   </style>
 </head>
 <body>
@@ -919,25 +1131,62 @@ footer img {
 </section>
 
 
-
 <footer>
-        <div class="left">
-            <a href="https://yrinspireit.github.io/">
-                <img src="https://i.postimg.cc/ZRc76Fqb/In-Shot-20241024-202136364.png">
-            </a>
+    <div class="footer-grid">
+        <!-- Company Information -->
+        <div class="footer-column">
+            <h3>Company</h3>
+            <p><strong><img src="https://i.postimg.cc/ZRc76Fqb/In-Shot-20241024-202136364.png" alt=""></strong></p>
+            <p><b>Your Inspire IT</b></p>
+            <p>Best Trusted Digital Partner Since 2022.</p>
+            <p>Earning Our Member, Earning Our Team, Profit to Our Client ! </p>
         </div>
-        <div class="right">
-            <ul><br><br>
-                <li><a href="https://pay-yourinspireit.github.io/withdraw/">Withdraw</a></li>
-                <li><a href="https://pay-yourinspireit.github.io/active-account">Active Account</a></li>
-                <li><a href="https://yrinspireit.github.io/">Main Site</a></li>
-                <li><a href="#">Join With Us</a></li>
-                <li><a href="#">Give Work</a></li>
-                <li><a href="#">FAQ</a></li>
-            </ul>
-        </div><hr><br><br>
-        <p>© All Rights Reserved to Your Inspire IT 2022-2024 | V6 </p>
-    </footer>
+
+        <!-- Quick Navigation Links -->
+        <div class="footer-column footer-links">
+            <h3>Quick Links</h3>
+             <a href="https://pay-yourinspireit.github.io/">Home</a>
+            <a href="https://YrInspireIT.github.io">Main Site</a>
+            <a href="https://pay-yourinspireit.github.io/withdraw">Withdraw</a>
+            <a href="https://pay-yourinspireit.github.io/active-account">Active Account</a>
+            <a href="https://pay-yourinspireit.github.io/login">Login</a>
+            <a href="https://YrInspireIT.github.io/faq">FAQ</a>
+        </div>
+
+        <!-- Contact Details -->
+        <div class="footer-column" style="display: none;">
+            <h3>Contact Us</h3>
+            <p><i class="fas fa-envelope"></i> email@example.com</p>
+            <p><i class="fas fa-phone"></i> +123 456 7890</p>
+            <p><i class="fas fa-map-marker-alt"></i> 123 Main St, City, Country</p>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <!-- Newsletter Subscription -->
+        <div class="footer-column" style="display: none;">
+            <h3>Subscribe</h3>
+            <form class="subscribe-form" onsubmit="showSubscribeMessage(event)">
+                <input type="email" placeholder="Your Email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+            <p id="subscribeMessage" style="display:none;">Thank you for subscribing!</p>
+        </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <p>&copy; 2022 - 2024 Your Inspire IT. All Rights Reserved.</p>
+        <p style="display: none;"><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </div>
+</footer>
+
+<!-- Back to Top Button -->
+<button id="backToTop" onclick="scrollToTop()" styel="display: none;">↑</button>
+
     
     <div class="popup-container" id="popup">
   <div class="popup-box">
@@ -979,6 +1228,23 @@ footer img {
   }
     
     
+    
+    
+    
+    // Back to Top Button
+    window.onscroll = function() {
+        document.getElementById("backToTop").style.display = window.scrollY > 200 ? "block" : "none";
+    };
+
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    // Subscription Message
+    function showSubscribeMessage(event) {
+        event.preventDefault();
+        document.getElementById("subscribeMessage").style.display = "block";
+    }
   </script>
 </body>
-</html>
+  </html>
