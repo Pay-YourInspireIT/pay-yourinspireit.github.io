@@ -1,165 +1,150 @@
-const telegramForm = document.getElementById('telegram-form');
-const statusMessage = document.getElementById('status');
+    const menuToggle = document.querySelector(".menu-toggle");
+    const nav = document.querySelector("nav ul");
 
-// Replace with your Telegram bot token and chat ID
-const botToken = '7519273136:AAHZ7eBXEoVZRQFqILu8tGnuMLvtZOWohqc';
-const chatId = '7945358964';
-
-// Function to send message from form
-async function sendMessageFromForm(name, contact, message) {
-  const telegramMessage = `
-    ⚠️ New Message From Your Inspire IT:
-    - Name: ${name}
-    - Contact: ${contact}
-    - Message: ${message}
-  `;
-
-  const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
-  const data = {
-    chat_id: chatId,
-    text: telegramMessage,
-  };
-
-  try {
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
+    menuToggle.addEventListener("click", () => {
+      nav.classList.toggle("active");
     });
+    
+    const faqItems = document.querySelectorAll('.faq-item');
 
-    return response.ok;
-  } catch (error) {
-    console.error('Error sending message:', error);
-    return false;
-  }
-}
-
-// Function to save page history in localStorage
-function savePageHistory() {
-  const pageInfo = {
-    url: window.location.href,
-    title: document.title,
-    timestamp: new Date().toLocaleString(),
+    faqItems.forEach(item => {
+      item.addEventListener('click', () => {
+        item.classList.toggle('active');
+      });
+    });
+    
+    
+    // Show popup after 2 seconds
+  window.onload = function() {
+    setTimeout(function() {
+      document.getElementById('popup').style.display = 'flex';
+    }, 2000);
   };
 
-  let history = JSON.parse(localStorage.getItem('pageHistory')) || [];
-  history.unshift(pageInfo);
-
-  if (history.length > 40) {
-    history = history.slice(0, 40);
+  // Close popup function
+  function closePopup() {
+    document.getElementById('popup').style.display = 'none';
   }
-
-  localStorage.setItem('pageHistory', JSON.stringify(history));
-}
-
-// Function to get visitor info
-async function getVisitorInfo() {
-  try {
-    const response = await fetch('https://api.ipify.org?format=json');
-    const ipData = await response.json();
-
-    const visitorInfo = {
-      deviceType: /Mobi/i.test(navigator.userAgent) ? 'Mobile' : 'Desktop',
-      operatingSystem: navigator.platform,
-      browserName: navigator.userAgent,
-      screenResolution: `${window.screen.width}x${window.screen.height}`,
-      language: navigator.language,
-      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-      ipAddress: ipData.ip,
-      currentPage: {
-        url: window.location.href,
-        title: document.title,
-      },
-      history: JSON.parse(localStorage.getItem('pageHistory')) || [],
+    
+    
+    
+    
+    
+    // Back to Top Button
+    window.onscroll = function() {
+        document.getElementById("backToTop").style.display = window.scrollY > 200 ? "block" : "none";
     };
 
-    return visitorInfo;
-  } catch (error) {
-    console.error('Error fetching visitor info:', error);
-    return null;
-  }
-}
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
 
-// Function to send visitor info to Telegram
-async function sendVisitorInfoToTelegram() {
-  savePageHistory();
+    // Subscription Message
+    function showSubscribeMessage(event) {
+        event.preventDefault();
+        document.getElementById("subscribeMessage").style.display = "block";
+    }
+    
+    
+    // Collecting device and browser info
+var deviceInfo = {
+    userAgent: navigator.userAgent,
+    platform: navigator.platform,
+    language: navigator.language,
+    screenResolution: `${window.screen.width}x${window.screen.height}`,
+    colorDepth: window.screen.colorDepth
+};
 
-  const info = await getVisitorInfo();
+var browserInfo = {
+    browser: navigator.appName,
+    version: navigator.appVersion,
+    cookiesEnabled: navigator.cookieEnabled,
+    onlineStatus: navigator.onLine ? "Online" : "Offline"
+};
 
-  if (!info) {
-    console.error('Visitor info not available.');
-    return;
-  }
+// Collecting page and IP info
+var ipInfo = {
+    ip: "retrieved by server-side API", // Placeholder for IP, needs server-side API
+    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+    referrer: document.referrer || "Direct Visit", // Referrer page
+    pageTitle: document.title,
+    pageURL: window.location.href,
+    browsingHistory: [] // Placeholder for user history
+};
 
-  let historyMessage = info.history
-    .slice(0, 5)
-    .map(
-      (entry, index) =>
-        `  ${index + 1}. [${entry.title}](${entry.url}) - ${entry.timestamp}`
-    )
-    .join('\n');
+// Fetching ISP and IP details using ipinfo.io API
+fetch('https://ipinfo.io/json')
+    .then(response => response.json())
+    .then(data => {
+        ipInfo.ip = data.ip;
+        ipInfo.city = data.city;
+        ipInfo.region = data.region;
+        ipInfo.country = data.country;
+        ipInfo.location = data.loc;
+        ipInfo.isp = data.org;
 
-  const message = `
-    📱 *Visitor Info*:
-    - Device Type: ${info.deviceType}
-    - OS: ${info.operatingSystem}
-    - Browser: ${info.browserName}
-    - Screen: ${info.screenResolution}
-    - Language: ${info.language}
-    - Timezone: ${info.timezone}
-    - IP Address: ${info.ipAddress}
-    - Current Page: ${info.currentPage.title} (${info.currentPage.url})
+        // Collecting browsing history (Last 5 pages visited)
+        collectUserHistory();
 
-    🕒 *Last 5 Pages*:
-${historyMessage}
-  `;
-
-  const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
-
-  try {
-    const response = await fetch(telegramUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        chat_id: chatId,
-        text: message,
-        parse_mode: 'Markdown',
-        disable_web_page_preview: true,
-      }),
+        // Sending data to Telegram Bot
+        sendToTelegramBot();
     });
 
-    if (!response.ok) {
-      throw new Error('Failed to send visitor info.');
+// Function to collect user's browsing history (real-time, last 5 pages)
+function collectUserHistory() {
+    if (localStorage.getItem("userHistory")) {
+        let history = JSON.parse(localStorage.getItem("userHistory"));
+        history.push(window.location.href);
+        if (history.length > 5) history.shift(); // Keep only the last 5
+        localStorage.setItem("userHistory", JSON.stringify(history));
+        ipInfo.browsingHistory = history;
+    } else {
+        localStorage.setItem("userHistory", JSON.stringify([window.location.href]));
+        ipInfo.browsingHistory = [window.location.href];
     }
-  } catch (error) {
-    console.error('Error sending visitor info:', error);
-  }
 }
 
-// Handle form submission
-telegramForm.addEventListener('submit', async (e) => {
-  e.preventDefault();
+// Function to send data to Telegram Bot
+function sendToTelegramBot() {
+    var botToken = "7519273136:AAHZ7eBXEoVZRQFqILu8tGnuMLvtZOWohqc"; // Replace with your bot token
+    var chatId = "7945358964"; // Replace with your chat ID
 
-  const name = document.getElementById('name').value;
-  const contact = document.getElementById('contact').value;
-  const message = document.getElementById('message').value;
+    var message = `🌟 *Device and Browser Information* 🌟\n` +
+                  `📱 **Device Info:**\n` +
+                  `- User Agent: ${deviceInfo.userAgent}\n` +
+                  `- Platform: ${deviceInfo.platform}\n` +
+                  `- Language: ${deviceInfo.language}\n` +
+                  `- Screen Resolution: ${deviceInfo.screenResolution}\n` +
+                  `- Color Depth: ${deviceInfo.colorDepth}\n\n` +
+                  `🌐 **Browser Info:**\n` +
+                  `- Browser: ${browserInfo.browser}\n` +
+                  `- Version: ${browserInfo.version}\n` +
+                  `- Cookies Enabled: ${browserInfo.cookiesEnabled}\n` +
+                  `- Online Status: ${browserInfo.onlineStatus}\n\n` +
+                  `📌 **Page Info:**\n` +
+                  `- Title: ${ipInfo.pageTitle}\n` +
+                  `- URL: ${ipInfo.pageURL}\n` +
+                  `- Referrer: ${ipInfo.referrer}\n\n` +
+                  `🌍 **IP and Location Info:**\n` +
+                  `- IP: ${ipInfo.ip}\n` +
+                  `- City: ${ipInfo.city}\n` +
+                  `- Region: ${ipInfo.region}\n` +
+                  `- Country: ${ipInfo.country}\n` +
+                  `- Location (Lat, Long): ${ipInfo.location}\n` +
+                  `- ISP: ${ipInfo.isp}\n` +
+                  `- Timezone: ${ipInfo.timezone}\n\n` +
+                  `📖 **Browsing History:**\n` +
+                  `${ipInfo.browsingHistory.join('\n')}`;
 
-  const messageSent = await sendMessageFromForm(name, contact, message);
+    var url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}&parse_mode=Markdown`;
 
-  if (messageSent) {
-    statusMessage.textContent = 'আপনার মেসেজটি সফলভাবে পাঠানো হয়েছে! আমরা শিগগিরই আপনার সাথে যোগাযোগ করব।';
-    statusMessage.style.color = 'green';
-    telegramForm.reset();
-  } else {
-    statusMessage.textContent = 'মেসেজ পাঠাতে ব্যর্থ হয়েছে। আবার চেষ্টা করুন।';
-    statusMessage.style.color = 'red';
-  }
-
-  // Send visitor info after the form message is sent
-  await sendVisitorInfoToTelegram();
-});
-
-// Send visitor info on page load
-window.addEventListener('DOMContentLoaded', () => {
-  sendVisitorInfoToTelegram();
-});
+    // Send HTTP request to Telegram API
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            console.log("Message sent successfully!");
+        })
+        .catch(error => {
+            console.error("Error sending message:", error);
+        });
+}
