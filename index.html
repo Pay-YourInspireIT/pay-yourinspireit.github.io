@@ -1,386 +1,553 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pay - Your Inspire IT : Your YI Wallet  | Withdraw Your Own Money  | Your Inspire IT</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
- <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@100..800&family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Megrim&family=Share:ital,wght@0,400;0,700;1,400;1,700&family=Sora:wght@100..800&display=swap" rel="stylesheet">
- <link rel="icon" href="https://i.postimg.cc/ZRc76Fqb/In-Shot-20241024-202136364.png" type="image/png">
- <link rel="stylesheet" href="style.css">
-  <style>
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Inspire IT Wallet - Secure Earnings Management Overview</title> <!-- Updated Title -->
+    <!-- Link to Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Link to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    
-    
-    
-    
-  </style>
+    <style>
+        /* --- THEME: e-wallet --- */
+        :root {
+            /* Core Palette (Dark Mode Base) */
+            --primary-bg: #0f172a;
+            --secondary-bg: #1e293b;
+            --tertiary-bg: #334155;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --glass-bg: rgba(51, 65, 85, 0.4);
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --border-color: rgba(71, 85, 105, 0.6);
+            --shadow-color: rgba(0, 0, 0, 0.4);
+
+            /* Accent Palette */
+            --accent-1: #8b5cf6; /* Violet */
+            --accent-1-hover: #7c3aed;
+            --accent-2: #2dd4bf; /* Teal/Cyan */
+            --accent-2-hover: #14b8a6;
+            --glow-color: rgba(45, 212, 191, 0.5);
+
+             /* Gradients */
+             --gradient-accent: linear-gradient(135deg, var(--accent-1) 0%, var(--accent-2) 100%);
+             --gradient-bg: linear-gradient(180deg, #111827 0%, #0f172a 100%);
+
+             /* Status Colors */
+             --success-color: #34d399;
+             --warning-color: #fbbf24;
+             --danger-color: #f87171;
+             --info-color: #60a5fa; /* Info Blue for Notice */
+        }
+
+        /* --- Base Styles --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--primary-bg);
+            background-image: var(--gradient-bg);
+            color: var(--text-primary);
+            line-height: 1.7; font-size: 16px; overflow-x: hidden;
+            display: flex; flex-direction: column; min-height: 100vh;
+        }
+        main { flex: 1; }
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+        .container-narrow { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+        h1, h2, h3 { font-weight: 600; color: var(--text-primary); margin-bottom: 0.8em; }
+        h1 { font-size: 3rem; line-height: 1.3; }
+        h2 { font-size: 2.1rem; }
+        h3 { font-size: 1.25rem; }
+        p { margin-bottom: 1em; color: var(--text-secondary); font-size: 1.05rem; }
+        a { text-decoration: none; color: var(--accent-2); transition: color 0.3s ease; }
+        a:hover { color: #5eead4; }
+        section { padding: 80px 0; overflow: hidden; position: relative; }
+        .section-title { text-align: center; margin-bottom: 60px; position: relative; z-index: 1; }
+        .section-title h2 { margin-bottom: 15px; }
+        .section-title p { max-width: 700px; margin: 0 auto; color: var(--text-secondary); font-size: 1.1rem; }
+
+        /* Glassmorphism Card Style */
+        .glass-card {
+            background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 8px 32px 0 var(--shadow-color); padding: 30px 40px;
+            animation: fadeInUp 0.6s ease-out backwards; position: relative; z-index: 1;
+        }
+        /* Abstract background shapes */
+        .shape { position: absolute; border-radius: 50%; opacity: 0.07; filter: blur(90px); z-index: 0; pointer-events: none; animation: float 8s infinite ease-in-out alternate; }
+        .shape-1 { width: 450px; height: 450px; background: var(--accent-1); top: 5%; left: -15%; animation-duration: 10s;}
+        .shape-2 { width: 400px; height: 400px; background: var(--accent-2); bottom: 10%; right: -20%; animation-duration: 8s; animation-delay: -2s;}
+        .shape-3 { width: 300px; height: 300px; background: #a78bfa; top: 60%; left: 5%; animation-duration: 11s; animation-delay: -1s;}
+
+        /* Button Styles */
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: var(--gradient-accent); color: #fff; padding: 14px 32px; border-radius: 50px; font-weight: 600; font-size: 1rem; transition: all 0.3s ease; border: none; cursor: pointer; text-align: center; box-shadow: 0 5px 15px rgba(139, 92, 246, 0.25), 0 0 15px var(--glow-color); position: relative; overflow: hidden; }
+        .btn:hover { box-shadow: 0 7px 20px rgba(139, 92, 246, 0.35), 0 0 25px var(--glow-color); transform: translateY(-3px) scale(1.03); text-decoration: none; color: #fff; }
+        .btn::after { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%); transform: rotate(0deg); transition: transform 0.5s ease; opacity: 0; }
+        .btn:hover::after { transform: rotate(180deg); opacity: 1; }
+        .btn-outline { background: transparent; color: var(--accent-2); border: 2px solid var(--accent-2); box-shadow: none; }
+        .btn-outline:hover { background: rgba(45, 212, 191, 0.1); color: var(--accent-2); border-color: var(--accent-2); box-shadow: 0 0 15px rgba(45, 212, 191, 0.2); transform: translateY(-3px); }
+        .btn-outline i { margin-right: 8px; }
+
+
+        /* --- Header/Navigation --- */
+        .main-header { background: rgba(15, 23, 42, 0.85); padding: 18px 0; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 1000; }
+        .main-header .container { display: flex; justify-content: space-between; align-items: center; position: relative; }
+        .logo { font-size: 1.6rem; font-weight: 700; color: var(--text-primary); }
+        .logo span { color: var(--accent-2); }
+        .main-nav { display: flex; } /* Default for desktop */
+        .main-nav a { margin-left: 35px; font-weight: 500; color: var(--text-secondary); position: relative; padding-bottom: 8px; font-size: 1rem; transition: color 0.3s ease; }
+        .main-nav a::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 0; height: 3px; background: var(--gradient-accent); border-radius: 3px; transition: width 0.3s ease; }
+        .main-nav a:hover::after, .main-nav a.active-nav::after { width: 60%; }
+        .main-nav a:hover, .main-nav a.active-nav { color: var(--text-primary); text-decoration: none;}
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; background: none; border: none; color: var(--text-primary); }
+
+
+        /* --- Wallet Landing Page Styles --- */
+
+        /* Wallet Hero Section (Logged Out) */
+        #wallet-landing-hero { padding: 100px 0 80px 0; text-align: center; position: relative; z-index: 1; }
+        #wallet-landing-hero h1 { font-size: 3.2rem; margin-bottom: 20px; background: linear-gradient(135deg, var(--text-primary) 30%, var(--accent-2) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: fadeInUp 0.6s ease-out backwards 0.1s; }
+        #wallet-landing-hero p.subtitle { font-size: 1.25rem; max-width: 750px; margin: 0 auto 40px auto; color: var(--text-secondary); animation: fadeInUp 0.6s ease-out backwards 0.2s; }
+        .hero-actions { animation: fadeInUp 0.6s ease-out backwards 0.3s; }
+        .hero-actions .btn { margin: 0 10px; }
+
+        /* Notice Section */
+        #notice-section { padding: 30px 0; background-color: rgba(51, 65, 85, 0.2); /* Slightly different background */ border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); margin-top: -80px; /* Overlap slightly with hero bottom padding */ position: relative; z-index: 2; animation: slideDown 0.8s ease-out backwards 0.5s;}
+        .notice-content { display: flex; align-items: center; justify-content: center; gap: 15px; text-align: center;}
+        .notice-icon { font-size: 1.5rem; color: var(--info-color); /* Use info color */ flex-shrink: 0;}
+        .notice-text { font-size: 0.95rem; color: var(--text-secondary); }
+        .notice-text strong { color: var(--text-primary); }
+        .notice-text a { font-weight: 600; text-decoration: underline; }
+        .notice-text a:hover { text-decoration: none; }
+
+
+        /* Platform Stats Section */
+        #platform-stats { padding: 80px 0; background-color: transparent; /* Remove solid bg */ }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .stat-card { background: var(--card-bg); border-radius: 12px; border: 1px solid var(--border-color); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); padding: 30px 25px; text-align: center; animation: fadeInUp 0.6s ease-out backwards; }
+        .stats-grid .stat-card:nth-child(1) { animation-delay: 0.2s; }
+        .stats-grid .stat-card:nth-child(2) { animation-delay: 0.3s; }
+        .stats-grid .stat-card:nth-child(3) { animation-delay: 0.4s; }
+        .stat-icon { font-size: 2.2rem; color: var(--accent-1); margin-bottom: 15px; }
+        .stat-value { font-size: 2rem; font-weight: 700; color: var(--text-primary); display: block; margin-bottom: 5px; }
+        .stat-label { font-size: 1rem; color: var(--text-secondary); }
+
+
+        /* Wallet Features Section */
+        #wallet-features { background: var(--secondary-bg); }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .feature-item { display: flex; align-items: flex-start; gap: 20px; padding: 25px; border: 1px solid var(--tertiary-bg); border-radius: 10px; transition: background-color 0.3s ease; animation: fadeInUp 0.6s ease-out backwards; }
+        .features-grid .feature-item:nth-child(1) { animation-delay: 0.1s; }
+        .features-grid .feature-item:nth-child(2) { animation-delay: 0.2s; }
+        .features-grid .feature-item:nth-child(3) { animation-delay: 0.3s; }
+        .features-grid .feature-item:nth-child(4) { animation-delay: 0.4s; }
+        .feature-item:hover { background-color: var(--tertiary-bg); }
+        .feature-icon { font-size: 1.8rem; color: var(--accent-2); flex-shrink: 0; margin-top: 3px; }
+        .feature-content h3 { font-size: 1.15rem; margin-bottom: 8px; color: var(--text-primary); }
+        .feature-content p { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 0; }
+
+
+        /* Main CTA Section */
+        #main-cta { background-color: transparent; text-align: center; padding: 60px 0;}
+        #main-cta h2 { margin-bottom: 15px; }
+        #main-cta p { max-width: 600px; margin: 0 auto 30px auto; font-size: 1.1rem; }
+        #main-cta .btn { width: auto; }
+
+
+        /* How it Works Section */
+        #how-it-works { background-color: var(--secondary-bg); } /* Solid dark */
+        .how-it-works-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; text-align: center; }
+        .how-it-works-step { animation: fadeInUp 0.6s ease-out backwards; }
+        .how-it-works-grid .how-it-works-step:nth-child(1) { animation-delay: 0.1s; }
+        .how-it-works-grid .how-it-works-step:nth-child(2) { animation-delay: 0.2s; }
+        .how-it-works-grid .how-it-works-step:nth-child(3) { animation-delay: 0.3s; }
+        .step-icon { font-size: 2.5rem; color: #fff; background: var(--gradient-accent); width: 70px; height: 70px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 25px; box-shadow: 0 6px 15px rgba(139, 92, 246, 0.3); transition: transform 0.3s ease; }
+        .how-it-works-step:hover .step-icon { transform: translateY(-5px) scale(1.05); }
+        .how-it-works-step h3 { font-size: 1.2rem; margin-bottom: 10px; }
+        .how-it-works-step p { font-size: 0.95rem; color: var(--text-secondary); }
+
+
+         /* FAQ Section */
+        #wallet-faq { background: var(--primary-bg); } /* Lighter bg for FAQ */
+        .faq-container { max-width: 850px; margin: 0 auto; }
+        .faq-item { background: var(--card-bg); margin-bottom: 15px; border-radius: 12px; border: 1px solid var(--border-color); overflow: hidden; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); animation: fadeInUp 0.5s ease-out backwards; }
+        .faq-item:nth-child(odd) { animation-delay: 0.1s; }
+        .faq-item:nth-child(even) { animation-delay: 0.2s; }
+        .faq-question { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 20px 25px; background: none; border: none; text-align: left; font-family: inherit; font-size: 1.1rem; font-weight: 500; color: var(--text-primary); cursor: pointer; transition: background-color 0.2s ease, color 0.2s ease; }
+        .faq-question:hover { background-color: rgba(51, 65, 85, 0.4); }
+        .faq-question.active { background-color: rgba(139, 92, 246, 0.15); color: #c4b5fd; }
+        .faq-question i { font-size: 1rem; transition: transform 0.3s ease; color: var(--accent-2); flex-shrink: 0; margin-left: 15px; }
+        .faq-question.active i { transform: rotate(180deg); color: #5eead4; }
+        .faq-answer { padding: 0 25px 0 25px; max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, padding 0.4s ease-out; border-top: 1px solid transparent; }
+        .faq-answer.active { max-height: 400px; padding-top: 20px; padding-bottom: 25px; border-top-color: var(--border-color); }
+        .faq-answer p { color: var(--text-secondary); line-height: 1.8; margin-bottom: 0.8em; }
+        .faq-answer ul { margin-left: 20px; margin-top: 10px; margin-bottom: 10px; color: var(--text-secondary); line-height: 1.8; }
+        .faq-answer li { margin-bottom: 8px; }
+
+
+        /* Final Get Started CTA */
+        #final-cta {
+            background: var(--secondary-bg); padding: 70px 0; text-align: center;
+        }
+        #final-cta h2 { margin-bottom: 15px; }
+        #final-cta p { color: var(--text-secondary); max-width: 600px; margin: 0 auto 30px auto; font-size: 1.1rem; }
+
+
+        /* Contact / Support Links */
+        #support-links { background-color: transparent; text-align: center; padding: 60px 0 80px 0; }
+        #support-links h2 { margin-bottom: 15px; font-size: 1.8rem; }
+        #support-links p { max-width: 600px; margin: 0 auto 35px auto; }
+        .support-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        #support-links .btn { width: auto; }
+
+
+        /* --- Footer --- */
+        .main-footer { background-color: #0f172a; color: #94a3b8; padding: 50px 0 20px 0; margin-top: auto; border-top: 1px solid var(--tertiary-bg); }
+        .main-footer .container { }
+        .footer-content { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px; margin-bottom: 40px; }
+        .footer-col { flex: 1; min-width: 200px; margin-bottom: 20px; }
+        .footer-col h4 { color: var(--text-primary); margin-bottom: 20px; font-size: 1.1rem; font-weight: 600; position: relative; padding-bottom: 10px; }
+        .footer-col h4::after { content: ''; position: absolute; left: 0; bottom: 0; width: 40px; height: 2px; background: var(--gradient-accent); }
+        .footer-col ul { list-style: none; padding: 0; }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col ul li a { color: #94a3b8; transition: color 0.3s ease, padding-left 0.3s ease; }
+        .footer-col ul li a:hover { color: var(--accent-2); padding-left: 5px; text-decoration: none; }
+        .footer-socials a { display: inline-block; color: #94a3b8; background-color: rgba(51, 65, 85, 0.5); width: 40px; height: 40px; line-height: 40px; border-radius: 50%; text-align: center; margin-right: 10px; font-size: 1rem; transition: all 0.3s ease; }
+        .footer-socials a:hover { background-color: var(--accent-2); color: var(--primary-bg); transform: scale(1.1); text-decoration: none; }
+        .footer-bottom { border-top: 1px solid var(--tertiary-bg); padding-top: 25px; text-align: center; font-size: 0.9rem; color: #64748b; }
+
+
+        /* --- Animations --- */
+        @keyframes fadeInScaleUp { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-100%); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes float { 0% { transform: translateY(0px) translateX(0px) rotate(0deg); } 50% { transform: translateY(-25px) translateX(20px) rotate(8deg); } 100% { transform: translateY(0px) translateX(0px) rotate(0deg); } }
+
+
+        /* --- Responsive Design --- */
+        @media (max-width: 992px) {
+             h1 { font-size: 2.6rem; } h2 { font-size: 1.9rem; } section { padding: 70px 0; }
+             #wallet-landing-hero { padding: 100px 0 80px 0; }
+             /* Responsive Fix: Adjust columns */
+             .stats-grid { grid-template-columns: repeat(2, 1fr); }
+             .features-grid { grid-template-columns: repeat(2, 1fr); }
+             .how-it-works-grid { grid-template-columns: repeat(2, 1fr); }
+
+             /* Responsive Nav */
+            .menu-toggle { display: block; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); }
+            .main-nav { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: rgba(15, 23, 42, 0.98); padding: 15px 0; backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); text-align: center; }
+            .main-nav.active { display: flex; }
+            .main-nav a { margin: 10px 20px; padding: 10px 0; width: auto; color: var(--text-secondary);}
+            .main-nav a:hover { color: var(--text-primary); background: rgba(51, 65, 85, 0.3); border-radius: 5px;}
+            .main-nav a::after { display: none; }
+        }
+
+        @media (max-width: 768px) {
+             h1 { font-size: 2.2rem; } h2 { font-size: 1.8rem; }
+             #wallet-landing-hero p.subtitle { font-size: 1.15rem; }
+             .hero-actions { gap: 15px; }
+             /* Responsive Fix: Stack grids earlier */
+             .stats-grid { grid-template-columns: 1fr; gap: 25px;}
+             .features-grid { grid-template-columns: 1fr; }
+             .how-it-works-grid { grid-template-columns: 1fr; }
+             .feature-item { flex-direction: column; align-items: center; text-align: center; gap: 15px; }
+             .feature-icon { margin-bottom: 10px; }
+             .faq-question { padding: 18px 20px; font-size: 1rem;}
+             .faq-answer { padding: 0 20px 0 20px; }
+             .faq-answer.active { padding-top: 15px; padding-bottom: 20px;}
+             .footer-content { text-align: center; }
+             .footer-col { flex-basis: 100%; margin-bottom: 30px; align-items: center; }
+             .footer-col h4::after { left: 50%; transform: translateX(-50%); }
+             .footer-col ul li a:hover { padding-left: 0; }
+             .support-buttons { flex-direction: column; align-items: center; }
+             .support-buttons .btn { width: 80%; max-width: 300px; margin-bottom: 10px; }
+        }
+
+        @media (max-width: 576px) {
+             body { font-size: 15px; }
+             h1 { font-size: 2rem; } h2 { font-size: 1.6rem; } h3 { font-size: 1.1rem; }
+             .logo { font-size: 1.4rem; }
+             .container, .container-narrow { padding: 0 15px; }
+             section { padding: 60px 0; }
+             #wallet-landing-hero { padding: 80px 0 60px 0; }
+             #wallet-landing-hero p.subtitle { font-size: 1.05rem; }
+             .hero-actions { flex-direction: column; align-items: center; }
+             .hero-actions .btn { width: 80%; max-width: 300px; margin-bottom: 10px; }
+             .stat-card { padding: 25px 20px; }
+             .stat-value { font-size: 1.6rem; }
+             .how-it-works-step { padding-bottom: 20px; }
+             #main-cta, #final-cta, #support-links { padding: 50px 0; } /* Adjusted CTA padding */
+             .faq-question { padding: 15px; font-size: 0.95rem;}
+             .faq-answer { padding: 0 15px 0 15px; }
+             .faq-answer.active { padding-top: 15px; padding-bottom: 15px;}
+        }
+
+    </style>
 </head>
 <body>
-  <header>
-    <div class="logo">Pay<span>YourInspireIT</span></div>
-    <nav>
-      <ul>
-        <li><a href="https://pay-yourinspireit.github.io/"><i class="fas fa-home"></i> Home</a></li>
-        <li><a href="https://pay-yourinspireit.github.io/withdraw/"><i class="fas fa-wallet"></i>Withdraw</a></li>
-        <li><a href="https://pay-yourinspireit.github.io/active-account"><i class="fas fa-user-check"></i>Active Account</a></li>
-        <li><a href="https://pay-yourinspireit.github.io/login"><i class="fas fa-sign-in-alt"></i>Log In</a></li>
-        <li><a href="https://yrinspireit.github.io/"><i class="fas fa-sitemap"></i>Main Site</a></li>
-      </ul>
-    </nav>
-    <i class="fas fa-bars menu-toggle"></i>
-  </header>
-  
-  <section class="ht">
-      Welcome To <br><b>YourInspireIT</b> Wallet ! 
-  </section>
+    <!-- Abstract Background Shapes -->
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
 
-  <section class="mb">
-    <div class="btn"><a href="https://pay-yourinspireit.github.io/withdraw/"> <i class="fas fa-wallet"></i> &nbsp; Withdraw Money </a></div>
-    <div class="btn"><a href="https://pay-yourinspireit.github.io/active-account"><i class="fas fa-user-check"></i> &nbsp; Active Account</a></div>
-    <div class="btn"><a href="https://yrinspireit.github.io/"><i class="fas fa-sitemap"></i> &nbsp; Main Site</a></div>
-  </section>
-
-
-
-<section class="h1"></section>
-  <div class="notice-board focus">
-    <h2><i class="fas fa-bell"></i> Notice Board</h2>
-    <div class="notice">
-      <i class="fas fa-info-circle"></i>
-      <p><strong>Important :</strong> পরবর্তী তে টাকা তুলার ঝামেলায় না পরতে চাইলে, এখুনি টাকা তুলে ফেলুন ! </p>
-    </div>
-    <div class="notice">
-      <i class="fas fa-cogs"></i>
-      <p><strong>Update :</strong> ওয়ালেট ড্যাশবোর্ডে নতুন ফিচার যোগ করা হয়েছে, যার মধ্যে রয়েছে লেনদেনের হিস্টোরি এবং দ্রুত টাকা তোলার সুবিধা!
-
-</p>
-    </div>
-    <div class="notice">
-      <i class="fas fa-users"></i>
-      <p><strong>Reminder :</strong> আপনার অ্যাকাউন্ট এখনই অ্যাকটিভ করুন এবং তাত্ক্ষণিকভাবে ইনকাম শুরু করুন! অ্যাকটিভিশন ডিপোজিট : 40 ৳।
-
-</p>
-    </div>
-  </div>
-
-
-<div class="containerx">
-            <h2>লেনদেনে সমস্যা?</h2>
-            <p>আপনার পেমেন্ট সংক্রান্ত যেকোনো সমস্যার জন্য, নিচের বাটনে ক্লিক করে আমাদের জানান।</p>
-
-            <div class="report-button-container">
-                <a href="https://example.com/report-issue" class="report-button">
-                    <span>রিপোর্ট করুন</span>
-                </a>
-            </div>
-
-            <p>আমাদের কাস্টমার সাপোর্ট টিম দ্রুত আপনার সাথে যোগাযোগ করবে এবং সমস্যা সমাধানে সাহায্য করবে।</p>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">Your <span>Inspire</span> IT</a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+             <nav class="main-nav" id="main-nav">
+              
+                 <a href="wallet-info.html" class="active-nav">Wallet</a>
+                 <a href="services.html">Work</a>
+                 <a href="help.html">FAQ</a>
+                 <a href="auth.html">Login / Sign Up</a>
+                 <a href="#">Main Site</a>
+             </nav>
         </div>
-  
-  
+    </header>
 
-<section class="w">
-    <div class="he">
-        <b>এখানে কী করতে পারবেন ? </b>
-    </div>
-    <div class="wc">
-        <img src="https://i.postimg.cc/pThf3sHp/Pngtree-question-mark-businessman-vector-task-5162877.png" >
-        <h6><b>Pay-YourInspireIT</b> সাইটটি হচ্ছে একজন <b>Your Inspire IT</b> User এর Wallet  ।  এখানে সে সকল প্রকার লেনদেন করতে পারবে ।  এখানে User তার একাউন্টের ব্যালেন্স দেখতে পারবে ।  এবং টাকাও তুলতে পারবে । এ সাইটটি একদম সুরক্ষিত এবং <b>Your Inspire IT</b> এর অফিশিয়াল Wallet সাইট । </h6>
-        <a href="#"><button><i class="fas fa-compass"></i> &nbsp; Explore</button></a>
-    </div>
-    
-    <div class="wc">
-        <img src="https://i.postimg.cc/8PZWCdcw/Picsart-24-10-24-12-17-44-777.png" >
-        <h6>এই সাইটে <b>Your Inspire IT</b> থেকে home আপনার ইনকামের টাকা তুলতে পারবেন ।  শুধু মাত্র কয়েকটি স্টেপ ফলো করে ।  সর্বনিম্ন উইথড্র ১০০ টাকা ! </h6>
-        <a href="https://pay-yourinspireit.github.io/withdraw/"><button><i class="fas fa-wallet"></i> &nbsp; Withdraw</button></a>
-    </div>
-    
-    
-    <div class="wc">
-        <img src="https://i.postimg.cc/MTx1g30w/Pngtree-3d-online-verified-flat-logo-18387926.png" >
-        <h6>একজন নতুন ইউজার কে তার <b>Your Inspire IT</b> একাউন্টটি এক্টিভ করতে হয় ।  এক্টিভ করার জন্য ৪০ টাকা তার নিজ একাউন্টে ডিপোজিট করতে হয় । এই সাইট থেকে নতুন একজন ইউজার তার নিজ একাউন্ট এক্টিভ করতে পারবে । </h6>
-        <a href="https://pay-yourinspireit.github.io/active-account"><button><i class="fas fa-user-check"></i> &nbsp; Active Account</button></a>
-    </div>
-</section>
-
-
- <section class="fa" style="display: none;">
-  <div class="faq-section">
-    <div class="faq-header">Frequently Asked Questions</div>
-    
-    <div class="faq-item">
-      <div class="faq-item-header">
-        <h3><i class="fas fa-question-circle"></i> Your Inspire IT এর পরিচয় কী ? </h3>
-        <i class="fas fa-chevron-down"></i>
-      </div>
-      <div class="faq-item-content">
-        <p>&nbsp; <br>Your Inspire IT হচ্ছে এমন একটি অনলাইন বেইসড ই-কমার্স প্রতিষ্ঠান যেখানে আপনি সহজ  ।  এখানে বিভিন্ন কাজ রয়েছে । </p>
-      </div>
-    </div>
-
-
-    <div class="faq-item">
-      <div class="faq-item-header">
-        <h3><i class="fas fa-question-circle"></i> How do I track my order?</h3>
-        <i class="fas fa-chevron-down"></i>
-      </div>
-      <div class="faq-item-content">
-        <p>You can track your order by logging into your account and viewing your order history. Tracking information will be provided once your order is shipped.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-item-header">
-        <h3><i class="fas fa-question-circle"></i> Do you offer international shipping?</h3>
-        <i class="fas fa-chevron-down"></i>
-      </div>
-      <div class="faq-item-content">
-        <p>Yes, we offer international shipping to most countries. Shipping charges and delivery times vary depending on the destination.</p>
-      </div>
-    </div>
-    
-    
-    <div class="faq-item">
-      <div class="faq-item-header">
-        <h3><i class="fas fa-question-circle"></i> Do you offer international shipping?</h3>
-        <i class="fas fa-chevron-down"></i>
-      </div>
-      <div class="faq-item-content">
-        <p>Yes, we offer international shipping to most countries. Shipping charges and delivery times vary depending on the destination.</p>
-      </div>
-    </div>
-    
-    
-    <div class="faq-item">
-      <div class="faq-item-header">
-        <h3><i class="fas fa-question-circle"></i> Do you offer international shipping?</h3>
-        <i class="fas fa-chevron-down"></i>
-      </div>
-      <div class="faq-item-content">
-        <p>Yes, we offer international shipping to most countries. Shipping charges and delivery times vary depending on the destination.</p>
-      </div>
-    </div>
-    
-    
-    <div class="faq-item">
-      <div class="faq-item-header">
-        <h3><i class="fas fa-question-circle"></i> Do you offer international shipping?</h3>
-        <i class="fas fa-chevron-down"></i>
-      </div>
-      <div class="faq-item-content">
-        <p>Yes, we offer international shipping to most countries. Shipping charges and delivery times vary depending on the destination.</p>
-      </div>
-    </div>
-    
-    <div class="faq-item">
-      <div class="faq-item-header">
-        <h3><i class="fas fa-question-circle"></i> Do you offer international shipping?</h3>
-        <i class="fas fa-chevron-down"></i>
-      </div>
-      <div class="faq-item-content">
-        <p>Yes, we offer international shipping to most countries. Shipping charges and delivery times vary depending on the destination.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-item-header">
-        <h3><i class="fas fa-question-circle"></i> How can I contact customer service?</h3>
-        <i class="fas fa-chevron-down"></i>
-      </div>
-      <div class="faq-item-content">
-        <p>You can contact our customer service team via email or phone. Visit our contact page for more details.</p>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="da">
-    <h1>We Are... Gained</h1>
-    <div class="dai">
-          <img src="https://i.postimg.cc/k59kVGTN/Picsart-24-10-25-06-51-32-684.png" alt="Trust Pilot">
-        <img src="https://i.postimg.cc/yxbHcKD1/Picsart-24-10-24-22-01-37-901.png" alt="Scame Adviser ">
-        </div>
-        <div class="dai">
-            
-        <img src="https://i.postimg.cc/HL8XGFPc/Picsart-24-10-24-21-28-57-530.png" alt="DMCA">
-        <img src="https://i.postimg.cc/9Mx5H2td/Picsart-24-10-24-22-00-36-005.png" alt="Trusted">
-      
-    </div>
-    </section>
-    
-    
-    <section class="r">
-        <h1>We Have...</h1>
-    
-    <div class="ra">
-
-  <div class="rcontainer">
-    <div class="box">
-      <i class="fas fa-users ricon"></i>
-      <h3>1600+ Daily Active Members</h3>
-      <p>Engaged community interacting every day.</p>
-    </div>
-    
-    <div class="box">
-      <i class="fas fa-user-friends ricon"></i>
-      <h3>Total 4800+ Members</h3>
-      <p>Growing network of trusted members.</p>
-    </div>
-    
-    <div class="box">
-      <i class="fas fa-briefcase ricon"></i>
-      <h3>130+ Clients</h3>
-      <p>Satisfied clients working with us.</p>
-    </div>
-    
-    <div class="box">
-      <i class="fas fa-user-plus ricon"></i>
-      <h3>28+ Referral Members</h3>
-      <p>People recommending us through referrals.</p>
-    </div>
-    
-    <div class="box">
-      <i class="fas fa-tasks ricon"></i>
-      <h3>9+ Works</h3>
-      <p>For Our Client or Members :)</p>
-    </div>
-  </div>
-</div>
-
-</section>
-
-
-<section class="rev">
-    <h2>What Our Clients Say</h2>
-    <!-- Reviews Section -->
-    <div class="reviews">
-        <!-- Review 1 -->
-        <div class="review-card">
-            <i class="fas fa-quote-left"></i>
-            <div class="review-content">
-                "আমি Your Inspire IT তে গত কয়েকমাস দরে কাজ করছি ।  এখন পর্যন্ত ভালো টাকা ইনকাম করেছি এবং কোনো প্রকার সমস্যা হয়নি ।  কোনো টাকা তুলতে বা অন্য কোনো সমস্যা হলে খুব দ্রুত ভাইয়াদেয় সাপোর্ট পেয়েছি ! "
+    <main>
+        <!-- Wallet Landing Hero Section (Logged Out) -->
+        <section id="wallet-landing-hero">
+            <div class="container">
+                <h1>Manage Your Earnings, Effortlessly.</h1>
+                <p class="subtitle">Discover the Your Inspire IT Wallet: a secure, transparent hub for tracking your task income and managing withdrawals with ease.</p>
+                <div class="hero-actions">
+                    <a href="auth.html?action=signup" class="btn"><i class="fas fa-user-plus"></i> Get Started Free</a>
+                    <a href="auth.html?action=login" class="btn btn-outline"><i class="fas fa-sign-in-alt"></i> Access Your Wallet</a>
+                </div>
             </div>
-            <div class="author">
-                <img src="https://i.postimg.cc/gJ6gPwyT/1734594290817-01.jpg" alt="User 1">
-                <h4>Israt Jahan Jim</h4>
-                <p>Member</p>
+        </section>
+<br><br>
+        <!-- Notice Section -->
+        <section id="notice-section">
+             <div class="container">
+                 <div class="notice-content">
+                     <i class="fas fa-bell notice-icon"></i>
+                     <p class="notice-text"><strong>Important Update:</strong> We've updated our payment processing times. Please check the <a href="help.html#payment-info">Payment Info</a> section for details.</p>
+                 </div>
+             </div>
+        </section>
+
+        <!-- Platform Stats Section -->
+        <section id="platform-stats">
+            <div class="container">
+                 <div class="section-title" style="margin-bottom: 50px;">
+                     <h2>Trusted by a Growing Global Community</h2>
+                     <!-- Optional: Add a short sentence here -->
+                 </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-users stat-icon"></i>
+                        <span class="stat-value">150,000+</span>
+                        <h3 class="stat-label">Active Users</h3>
+                    </div>
+                     <div class="stat-card">
+                        <i class="fas fa-hand-holding-usd stat-icon"></i>
+                        <span class="stat-value">$1.2M+</span>
+                        <h3 class="stat-label">Paid Out</h3>
+                    </div>
+                     <div class="stat-card">
+                         <i class="fas fa-check-double stat-icon"></i>
+                        <span class="stat-value">10M+</span>
+                        <h3 class="stat-label">Tasks Completed</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wallet Features Section -->
+        <section id="wallet-features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Designed for You</h2>
+                    <p>Key features that make managing your earnings simple and secure.</p>
+                </div>
+                 <div class="features-grid">
+                     <div class="feature-item">
+                         <i class="fas fa-lock feature-icon"></i>
+                         <div class="feature-content"><h3>Bank-Grade Security</h3><p>Robust encryption and protocols protect your funds and data.</p></div>
+                     </div>
+                      <div class="feature-item">
+                         <i class="fas fa-eye feature-icon"></i>
+                         <div class="feature-content"><h3>Full Transparency</h3><p>Track every earning and withdrawal with a clear, detailed history.</p></div>
+                     </div>
+                      <div class="feature-item">
+                         <i class="fas fa-random feature-icon"></i>
+                         <div class="feature-content"><h3>Flexible Payouts</h3><p>Choose from popular methods like PayPal, Bank Transfer, and more.</p></div>
+                     </div>
+                      <div class="feature-item">
+                         <i class="fas fa-puzzle-piece feature-icon"></i>
+                         <div class="feature-content"><h3>Seamless Integration</h3><p>Earnings automatically credited from completed tasks for easy management.</p></div>
+                     </div>
+                 </div>
+            </div>
+        </section>
+
+        <!-- How it Works Section -->
+        <section id="how-it-works">
+             <div class="container">
+                 <div class="section-title">
+                     <h2>Simple Wallet Management</h2>
+                     <p>Follow these steps once you start earning on Your Inspire IT.</p>
+                 </div>
+                 <div class="how-it-works-grid">
+                      <div class="how-it-works-step">
+                          <div class="step-icon"><i class="fas fa-tasks"></i></div>
+                          <h3>1. Complete Tasks</h3> <p>Successfully finish available tasks on the platform.</p>
+                      </div>
+                     <div class="how-it-works-step">
+                          <div class="step-icon"><i class="fas fa-wallet"></i></div>
+                          <h3>2. Earn & Track</h3> <p>Approved earnings appear directly in your secure wallet.</p>
+                      </div>
+                      <div class="how-it-works-step">
+                          <div class="step-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                          <h3>3. Withdraw Funds</h3><p>Request payouts easily via your chosen method.</p>
+                      </div>
+                 </div>
+            </div>
+        </section>
+
+         <!-- Main CTA Section (Added) -->
+         <section id="main-cta">
+              <div class="container">
+                  <div class="section-title">
+                       <h2>Explore Earning Opportunities</h2>
+                       <p>Ready to put the EarnWell Wallet to use? Discover a wide range of tasks you can complete to start earning today.</p>
+                       <a href="services.html" class="btn"><i class="fas fa-briefcase"></i> Browse Tasks Now</a>
+                  </div>
+              </div>
+         </section>
+
+         <!-- FAQ Section (Added) -->
+        <section id="wallet-faq">
+            <div class="container-narrow">
+                 <div class="section-title">
+                    <h2>Common Wallet Questions</h2>
+                    <p>Find quick answers to frequently asked questions about the Your Inspire IT Wallet.</p>
+                </div>
+                <div class="faq-container">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item"> <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-w1"> <span>How do I withdraw my earnings?</span> <i class="fas fa-chevron-down"></i> </button> <div class="faq-answer" id="faq-answer-w1"> <p>Once logged in, navigate to the 'Withdraw' or 'Wallet' section. Select your preferred payment method, enter the amount (meeting the minimum threshold), and confirm. Follow any verification steps.</p> </div> </div>
+                    <!-- FAQ Item 2 -->
+                     <div class="faq-item"> <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-w2"> <span>What is the minimum withdrawal amount?</span> <i class="fas fa-chevron-down"></i> </button> <div class="faq-answer" id="faq-answer-w2"> <p>This varies by payment method. The specific minimum for each option is displayed clearly when you initiate a withdrawal.</p> </div> </div>
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item"> <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-w3"> <span>How long does payment take?</span> <i class="fas fa-chevron-down"></i> </button> <div class="faq-answer" id="faq-answer-w3"> <p>Typically 3-7 business days after approval, but this can depend on your chosen method and bank processing times.</p> </div> </div>
+                    <!-- FAQ Item 4 -->
+                     <div class="faq-item"> <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-w4"> <span>Are there withdrawal fees?</span> <i class="fas fa-chevron-down"></i> </button> <div class="faq-answer" id="faq-answer-w4"> <p>EarnWell minimizes fees, but payment processors (like PayPal) may have their own. Any applicable fees are shown during the withdrawal process.</p> </div> </div>
+                </div>
+                 <div style="text-align: center; margin-top: 40px;">
+                     <a href="help.html#faq" class="btn btn-outline">View More FAQs</a>
+                 </div>
+            </div>
+        </section>
+
+        <!-- Final Get Started CTA -->
+        <section id="final-cta">
+            <div class="container">
+                 <div class="section-title">
+                    <h2>Join Your Inspire IT Today!</h2>
+                    <p>Sign up now for free access to online tasks and start building your earnings in your secure Your Inspire IT Wallet.</p>
+                    <a href="auth.html?action=signup" class="btn"><i class="fas fa-user-plus"></i> Create Your Free Account</a>
+                 </div>
+            </div>
+        </section>
+
+        <!-- Support Links -->
+        <section id="support-links">
+            <div class="container">
+                <h2>Need More Help?</h2>
+                <p>Our Help Center has detailed guides, or contact our support team directly for assistance.</p>
+                <div class="support-buttons">
+                     <a href="contact.html" class="btn btn-outline"><i class="fas fa-headset"></i> Contact Support</a>
+                     <a href="help.html" class="btn btn-outline"><i class="fas fa-book-open"></i> Visit Help Center</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+     <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                 <div class="footer-col"><h4>About</h4><ul><li><a href="#">Our Mission</a></li><li><a href="#">How it Works</a></li><li><a href="#">Blog</a></li></ul></div>
+                 <div class="footer-col"><h4>Support</h4><ul><li><a href="#">Help Center / FAQ</a></li><li><a href="#">Contact Us</a></li><li><a href="#">Report</a></li><li><a href="#">Payment Info</a></li></ul></div>
+                 <div class="footer-col"><h4>Legal & Transparency</h4><ul><li><a href="#">Terms of Service</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Cookie Policy</a></li><li><a href="#">Earning Disclaimer</a></li></ul></div>
+                 <div class="footer-col" style="display: none;"><h4>Connect With Us</h4><div class="footer-socials"><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a><a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></div></div>
+            </div>
+            <div class="footer-bottom">
+                 © 2022-2025 Your Inspire IT. All Rights Reserved.
             </div>
         </div>
+     </footer>
 
-        <!-- Review 2 -->
-        <div class="review-card">
-            <i class="fas fa-quote-left"></i>
-            <div class="review-content">
-                "প্রথমে মেম্বার হিসেবে ভয়ে ভয়ে জয়েন হলাম !  কত দ্রুতার সাথে Your Inspire IT আমাকে Reffral Member হিসেবে Promote করলো ।  ধন্যবাদ কর্তৃপক্ষকে, একটি সুন্দর Earning এবং Client Servive Platfrom বানানোর জন্য ।  যেখান থেকে সরাসরি Client আমাদের কাজগুলো নেয় ! "
-            </div>
-            <div class="author">
-                <img src="https://i.postimg.cc/j20ZqsZd/1734603271887-01.jpg" alt="User 2">
-                <h4>Riad Ahmed</h4>
-                <p>Refferal Member</p>
-            </div>
-        </div>
+    <script>
+        // --- Mobile Menu Toggle ---
+        const menuToggle = document.getElementById('menu-toggle');
+        const mainNav = document.getElementById('main-nav');
+        if (menuToggle && mainNav) {
+            menuToggle.addEventListener('click', () => {
+                mainNav.classList.toggle('active');
+                const icon = menuToggle.querySelector('i');
+                if (mainNav.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+             // Optional: Close menu when a link inside is clicked
+            mainNav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (mainNav.classList.contains('active')) {
+                         mainNav.classList.remove('active');
+                         const icon = menuToggle.querySelector('i');
+                         icon.classList.remove('fa-times');
+                         icon.classList.add('fa-bars');
+                    }
+                });
+             });
+        }
 
-        <!-- Review 3 -->
-        <div class="review-card">
-            <i class="fas fa-quote-left"></i>
-            <div class="review-content">
-                "আমার এই Platfrom টি ভালো লাগার কারণটি হচ্ছে,  এখানে কাজ দিয়েও লাভবান হওয়া যায় এবং কাজ করেও লাভবান হওয়া যায় ।  এখানে সরাসরি অর্গানিকভাবে Member দিয়ে কাজ করা যায় ।  কাজগুলোর মানও অনেক ভালো ।  আমি গত ১ বছরেরও বেশি সময় ধরে কাজ দিয়ে আসছি ।  আমি এখানে ১ লাক্ষের উপরে টাকার সমপরিমাণ কাজ করিয়ে নিয়েছি ।  অসাধারণ  ।  সামনে আরও ভালোকিছুর অপেক্ষায় রইলাম ! "
-            </div>
-            <div class="author">
-                <img src="https://i.postimg.cc/5N5k0Ccc/1734593850794-01.jpg" alt="User 3">
-                <h4>Forhad Iqbal</h4>
-                <p>Client</p>
-            </div>
-        </div>
+        // --- FAQ Accordion ---
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = document.getElementById(button.getAttribute('aria-controls'));
+                const isActive = button.getAttribute('aria-expanded') === 'true';
+                button.setAttribute('aria-expanded', !isActive);
+                answer.hidden = isActive;
+                button.classList.toggle('active');
+                answer.classList.toggle('active');
+                const icon = button.querySelector('i');
+                icon.classList.toggle('fa-chevron-down');
+                icon.classList.toggle('fa-chevron-up');
+                if (!isActive) {
+                     answer.style.maxHeight = answer.scrollHeight + 'px';
+                 } else {
+                     answer.style.maxHeight = '0';
+                 }
+            });
+             // Initialize state
+            const initialAnswer = document.getElementById(button.getAttribute('aria-controls'));
+            if (button.getAttribute('aria-expanded') === 'false') {
+                initialAnswer.hidden = true; initialAnswer.style.maxHeight = '0';
+                button.querySelector('i').classList.add('fa-chevron-down'); button.querySelector('i').classList.remove('fa-chevron-up');
+            } else {
+                 initialAnswer.hidden = false; initialAnswer.style.maxHeight = initialAnswer.scrollHeight + 'px';
+                 button.querySelector('i').classList.add('fa-chevron-up'); button.querySelector('i').classList.remove('fa-chevron-down');
+            }
+        });
 
-        <!-- Review 4 -->
-        <div class="review-card">
-            <i class="fas fa-quote-left"></i>
-            <div class="review-content">"আমি প্রায় সম্পুর্ন Platform টি রিভিউ করলাম !  অসাধারণ একটি নতুন ইউনিক আইডিয়া ।  একদম Freelancer / Fiver / Upwork এর মতো বাংলাদেশের তৈরি একটি Platform. খুব তাড়াতাড়ি এই সাইটটি সবার সাথে আরও এগিয়ে যাবে । এখানকার Reffral Member রা একজনকে এড করার আগে যাচাই-বাছাই করে, তাছাড়া তারা তাদের Team এবং Member দের সুরক্ষিত রাখার জন্য সকল কিছু করে ।  Highly Recommended !  "
-            </div>
-            <div class="author">
-                <img src="https://i.postimg.cc/qB35PFjv/1734548456808-01.jpg" alt="User 4">
-                <h4>Mehedi Hasan</h4>
-                <p>Freelancer</p>
-            </div>
-        </div>
-    </div>
-    <br><br><br>
-    </section>
-    
+    </script>
 
-<footer>
-    <div class="footer-grid">
-        <!-- Company Information -->
-        <div class="footer-column">
-            <h3>Company</h3>
-            <p><strong><img src="https://i.postimg.cc/ZRc76Fqb/In-Shot-20241024-202136364.png" alt=""></strong></p>
-            <p><b>Your Inspire IT</b></p>
-            <p>Best Trusted Digital Partner Since 2022.</p>
-            <p>Earning Our Member, Earning Our Team, Profit to Our Client ! </p>
-        </div>
-
-        <!-- Quick Navigation Links -->
-        <div class="footer-column footer-links">
-            <h3>Quick Links</h3>
-             <a href="https://pay-yourinspireit.github.io/">Home</a>
-            <a href="https://YrInspireIT.github.io">Main Site</a>
-            <a href="https://pay-yourinspireit.github.io/withdraw">Withdraw</a>
-            <a href="https://pay-yourinspireit.github.io/active-account">Active Account</a>
-            <a href="https://pay-yourinspireit.github.io/login">Login</a>
-            <a href="https://YrInspireIT.github.io/faq">FAQ</a>
-        </div>
-
-        <!-- Contact Details -->
-        <div class="footer-column" style="display: none;">
-            <h3>Contact Us</h3>
-            <p><i class="fas fa-envelope"></i> email@example.com</p>
-            <p><i class="fas fa-phone"></i> +123 456 7890</p>
-            <p><i class="fas fa-map-marker-alt"></i> 123 Main St, City, Country</p>
-            <div class="social-icons">
-                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
-
-        <!-- Newsletter Subscription -->
-        <div class="footer-column" style="display: none;">
-            <h3>Subscribe</h3>
-            <form class="subscribe-form" onsubmit="showSubscribeMessage(event)">
-                <input type="email" placeholder="Your Email" required>
-                <button type="submit">Subscribe</button>
-            </form>
-            <p id="subscribeMessage" style="display:none;">Thank you for subscribing!</p>
-        </div>
-    </div>
-
-    <!-- Footer Bottom -->
-    <div class="footer-bottom">
-        <p>&copy; 2022 - 2024 Your Inspire IT. All Rights Reserved.</p>
-        <p style="display: none;"><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
-    </div>
-</footer>
-
-<!-- Back to Top Button -->
-<button id="backToTop" onclick="scrollToTop()" ><i class="fas fa-arrow-up"></i></button>
-
-    
-    <div class="popup-container" id="popup">
-  <div class="popup-box">
-    <span class="close-popup" onclick="closePopup()"><i class="fas fa-times"></i></span>
-    <img src="https://i.postimg.cc/MKHDp8wP/4dc8e489-97fd-4adb-9d7f-d1c39a221e46.jpg" alt="Popup Image">
-    <div class="popup-title"><i class="fas fa-info-circle"></i>  &nbsp; Website is Under Maintenance ! </div>
-    <div class="popup-subtitle" >Pay-YourInspireIT সহো আমাদের সকল Website এর আপগ্রেডশন চলছে ।  সকল সিস্টেম এবং ফাংশন সঠিক ভাবে কাজ নাও করতে পারে । শীগ্রই আপডেট শেষ হয়ে যাবে । তবে Withdraw এবং Active Account এর সকল সিস্টেম ভালোভাবে কাজ করবে, এতে কোনো সমস্যা হবে না । ধন্যবাদ :)</div>
-  </div>
-</div>
-
-    
-  <script src="script.js">
-
-  </script>
 </body>
-</html>
+  </html>
