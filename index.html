@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Inspire IT Wallet - Secure Earnings Management Overview</title> <!-- Updated Title -->
+    <title>Your Inspire IT Wallet - Secure Earnings Management Overview</title>
     <!-- Link to Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Link to Google Fonts -->
@@ -12,35 +12,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* --- THEME: e-wallet --- */
+        /* --- THEME: Light & Professional --- */
         :root {
-            /* Core Palette (Dark Mode Base) */
-            --primary-bg: #0f172a;
-            --secondary-bg: #1e293b;
-            --tertiary-bg: #334155;
-            --card-bg: rgba(30, 41, 59, 0.7);
-            --glass-bg: rgba(51, 65, 85, 0.4);
-            --text-primary: #e2e8f0;
-            --text-secondary: #94a3b8;
-            --border-color: rgba(71, 85, 105, 0.6);
-            --shadow-color: rgba(0, 0, 0, 0.4);
+            /* Core Palette (Light Mode Base) */
+            --primary-bg: #f8fafc; /* Very light gray/almost white */
+            --secondary-bg: #ffffff; /* White */
+            --card-bg: #ffffff;
+            --text-primary: #1e293b; /* Dark slate */
+            --text-secondary: #64748b; /* Lighter slate */
+            --border-color: #e2e8f0; /* Light gray border */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -1px rgba(0, 0, 0, 0.05);
 
             /* Accent Palette */
-            --accent-1: #8b5cf6; /* Violet */
-            --accent-1-hover: #7c3aed;
-            --accent-2: #2dd4bf; /* Teal/Cyan */
-            --accent-2-hover: #14b8a6;
-            --glow-color: rgba(45, 212, 191, 0.5);
-
-             /* Gradients */
-             --gradient-accent: linear-gradient(135deg, var(--accent-1) 0%, var(--accent-2) 100%);
-             --gradient-bg: linear-gradient(180deg, #111827 0%, #0f172a 100%);
+            --accent-1: #7c3aed; /* Violet (slightly darker for better contrast) */
+            --accent-1-hover: #6d28d9;
+            --accent-2: #0d9488; /* Teal (slightly darker for better contrast) */
+            --accent-2-hover: #0f766e;
+            --accent-gradient: linear-gradient(135deg, var(--accent-1) 0%, var(--accent-2) 100%);
 
              /* Status Colors */
-             --success-color: #34d399;
-             --warning-color: #fbbf24;
-             --danger-color: #f87171;
-             --info-color: #60a5fa; /* Info Blue for Notice */
+             --success-color: #10b981; /* Emerald */
+             --warning-color: #f59e0b; /* Amber */
+             --danger-color: #ef4444; /* Red */
+             --info-color: #3b82f6; /* Blue */
+             --info-bg-light: #eff6ff; /* Light Blue BG for Notice */
+             --info-border-light: #bfdbfe; /* Lighter Blue Border */
+             --info-text-dark: #1e40af; /* Darker Blue Text */
         }
 
         /* --- Base Styles --- */
@@ -49,7 +47,6 @@
         body {
             font-family: 'Poppins', sans-serif;
             background-color: var(--primary-bg);
-            background-image: var(--gradient-bg);
             color: var(--text-primary);
             line-height: 1.7; font-size: 16px; overflow-x: hidden;
             display: flex; flex-direction: column; min-height: 100vh;
@@ -59,250 +56,283 @@
         .container-narrow { max-width: 900px; margin: 0 auto; padding: 0 20px; }
 
         h1, h2, h3 { font-weight: 600; color: var(--text-primary); margin-bottom: 0.8em; }
-        h1 { font-size: 3rem; line-height: 1.3; }
-        h2 { font-size: 2.1rem; }
-        h3 { font-size: 1.25rem; }
-        p { margin-bottom: 1em; color: var(--text-secondary); font-size: 1.05rem; }
+        h1 { font-size: 2.8rem; line-height: 1.3; } /* Slightly smaller for balance */
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.2rem; }
+        p { margin-bottom: 1em; color: var(--text-secondary); font-size: 1rem; }
         a { text-decoration: none; color: var(--accent-2); transition: color 0.3s ease; }
-        a:hover { color: #5eead4; }
-        section { padding: 80px 0; overflow: hidden; position: relative; }
-        .section-title { text-align: center; margin-bottom: 60px; position: relative; z-index: 1; }
+        a:hover { color: var(--accent-2-hover); }
+        section { padding: 70px 0; overflow: hidden; position: relative; }
+        .section-title { text-align: center; margin-bottom: 50px; position: relative; z-index: 1; }
         .section-title h2 { margin-bottom: 15px; }
-        .section-title p { max-width: 700px; margin: 0 auto; color: var(--text-secondary); font-size: 1.1rem; }
+        .section-title p { max-width: 700px; margin: 0 auto; color: var(--text-secondary); font-size: 1.05rem; }
 
-        /* Glassmorphism Card Style */
-        .glass-card {
-            background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color);
-            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-            box-shadow: 0 8px 32px 0 var(--shadow-color); padding: 30px 40px;
-            animation: fadeInUp 0.6s ease-out backwards; position: relative; z-index: 1;
+        /* Standard Card Style (Replaces Glassmorphism) */
+        .content-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-md);
+            padding: 30px 35px;
+            animation: fadeInUp 0.5s ease-out backwards;
+            position: relative;
+            z-index: 1;
         }
-        /* Abstract background shapes */
-        .shape { position: absolute; border-radius: 50%; opacity: 0.07; filter: blur(90px); z-index: 0; pointer-events: none; animation: float 8s infinite ease-in-out alternate; }
-        .shape-1 { width: 450px; height: 450px; background: var(--accent-1); top: 5%; left: -15%; animation-duration: 10s;}
-        .shape-2 { width: 400px; height: 400px; background: var(--accent-2); bottom: 10%; right: -20%; animation-duration: 8s; animation-delay: -2s;}
-        .shape-3 { width: 300px; height: 300px; background: #a78bfa; top: 60%; left: 5%; animation-duration: 11s; animation-delay: -1s;}
+        /* Remove abstract shapes */
+        .shape { display: none; }
 
         /* Button Styles */
-        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: var(--gradient-accent); color: #fff; padding: 14px 32px; border-radius: 50px; font-weight: 600; font-size: 1rem; transition: all 0.3s ease; border: none; cursor: pointer; text-align: center; box-shadow: 0 5px 15px rgba(139, 92, 246, 0.25), 0 0 15px var(--glow-color); position: relative; overflow: hidden; }
-        .btn:hover { box-shadow: 0 7px 20px rgba(139, 92, 246, 0.35), 0 0 25px var(--glow-color); transform: translateY(-3px) scale(1.03); text-decoration: none; color: #fff; }
-        .btn::after { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%); transform: rotate(0deg); transition: transform 0.5s ease; opacity: 0; }
-        .btn:hover::after { transform: rotate(180deg); opacity: 1; }
-        .btn-outline { background: transparent; color: var(--accent-2); border: 2px solid var(--accent-2); box-shadow: none; }
-        .btn-outline:hover { background: rgba(45, 212, 191, 0.1); color: var(--accent-2); border-color: var(--accent-2); box-shadow: 0 0 15px rgba(45, 212, 191, 0.2); transform: translateY(-3px); }
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: var(--accent-gradient); color: #fff; padding: 12px 30px; border-radius: 50px; font-weight: 600; font-size: 0.95rem; transition: all 0.3s ease; border: none; cursor: pointer; text-align: center; box-shadow: var(--shadow-sm); }
+        .btn:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); text-decoration: none; color: #fff; }
+        .btn i { font-size: 0.9em; } /* Slightly smaller icon */
+        .btn-outline { background: transparent; color: var(--accent-1); border: 2px solid var(--accent-1); box-shadow: none; }
+        .btn-outline:hover { background: rgba(124, 58, 237, 0.05); color: var(--accent-1-hover); border-color: var(--accent-1-hover); box-shadow: none; transform: translateY(-2px); }
         .btn-outline i { margin-right: 8px; }
 
 
         /* --- Header/Navigation --- */
-        .main-header { background: rgba(15, 23, 42, 0.85); padding: 18px 0; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 1000; }
+        .main-header {
+            background: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+            padding: 15px 0;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky; top: 0; z-index: 1000;
+        }
         .main-header .container { display: flex; justify-content: space-between; align-items: center; position: relative; }
-        .logo { font-size: 1.6rem; font-weight: 700; color: var(--text-primary); }
-        .logo span { color: var(--accent-2); }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--text-primary); }
+        .logo i { color: var(--accent-2); margin-right: 5px;}
+        .logo span { color: var(--accent-1); } /* Switched accent colors for variety */
         .main-nav { display: flex; } /* Default for desktop */
-        .main-nav a { margin-left: 35px; font-weight: 500; color: var(--text-secondary); position: relative; padding-bottom: 8px; font-size: 1rem; transition: color 0.3s ease; }
-        .main-nav a::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 0; height: 3px; background: var(--gradient-accent); border-radius: 3px; transition: width 0.3s ease; }
-        .main-nav a:hover::after, .main-nav a.active-nav::after { width: 60%; }
+        .main-nav a { margin-left: 30px; font-weight: 500; color: var(--text-secondary); position: relative; padding-bottom: 6px; font-size: 0.95rem; transition: color 0.3s ease; }
+        .main-nav a::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 0; height: 2px; background: var(--accent-gradient); border-radius: 3px; transition: width 0.3s ease; }
+        .main-nav a:hover::after, .main-nav a.active-nav::after { width: 50%; }
         .main-nav a:hover, .main-nav a.active-nav { color: var(--text-primary); text-decoration: none;}
         .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; background: none; border: none; color: var(--text-primary); }
 
 
         /* --- Wallet Landing Page Styles --- */
 
-        /* Wallet Hero Section (Logged Out) */
-        #wallet-landing-hero { padding: 100px 0 80px 0; text-align: center; position: relative; z-index: 1; }
-        #wallet-landing-hero h1 { font-size: 3.2rem; margin-bottom: 20px; background: linear-gradient(135deg, var(--text-primary) 30%, var(--accent-2) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: fadeInUp 0.6s ease-out backwards 0.1s; }
-        #wallet-landing-hero p.subtitle { font-size: 1.25rem; max-width: 750px; margin: 0 auto 40px auto; color: var(--text-secondary); animation: fadeInUp 0.6s ease-out backwards 0.2s; }
-        .hero-actions { animation: fadeInUp 0.6s ease-out backwards 0.3s; }
-        .hero-actions .btn { margin: 0 10px; }
+        /* Wallet Hero Section */
+        #wallet-landing-hero { padding: 80px 0 60px 0; text-align: center; background-color: var(--secondary-bg); border-bottom: 1px solid var(--border-color); position: relative; z-index: 1;}
+        #wallet-landing-hero h1 { font-size: 3rem; margin-bottom: 20px; color: var(--text-primary); animation: fadeInUp 0.5s ease-out backwards 0.1s; }
+        #wallet-landing-hero p.subtitle { font-size: 1.15rem; max-width: 750px; margin: 0 auto 35px auto; color: var(--text-secondary); animation: fadeInUp 0.5s ease-out backwards 0.2s; }
+        .hero-actions { animation: fadeInUp 0.5s ease-out backwards 0.3s; }
+        .hero-actions .btn { margin: 0 8px; }
 
         /* Notice Section */
-        #notice-section { padding: 30px 0; background-color: rgba(51, 65, 85, 0.2); /* Slightly different background */ border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); margin-top: -80px; /* Overlap slightly with hero bottom padding */ position: relative; z-index: 2; animation: slideDown 0.8s ease-out backwards 0.5s;}
+        #notice-section {
+            padding: 25px 0;
+            background-color: var(--info-bg-light); /* Use light info color */
+            border-top: 1px solid var(--info-border-light);
+            border-bottom: 1px solid var(--info-border-light);
+            margin-top: 0; /* Remove overlap */
+            position: relative; z-index: 2;
+            animation: fadeInUp 0.6s ease-out backwards 0.4s; /* Simple fade in */
+        }
         .notice-content { display: flex; align-items: center; justify-content: center; gap: 15px; text-align: center;}
-        .notice-icon { font-size: 1.5rem; color: var(--info-color); /* Use info color */ flex-shrink: 0;}
-        .notice-text { font-size: 0.95rem; color: var(--text-secondary); }
-        .notice-text strong { color: var(--text-primary); }
-        .notice-text a { font-weight: 600; text-decoration: underline; }
+        .notice-icon { font-size: 1.4rem; color: var(--info-color); flex-shrink: 0;}
+        .notice-text { font-size: 0.9rem; color: var(--info-text-dark); } /* Darker text for readability */
+        .notice-text strong { color: var(--text-primary); font-weight: 600; }
+        .notice-text a { font-weight: 600; text-decoration: underline; color: var(--info-color); }
         .notice-text a:hover { text-decoration: none; }
 
 
         /* Platform Stats Section */
-        #platform-stats { padding: 80px 0; background-color: transparent; /* Remove solid bg */ }
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-        .stat-card { background: var(--card-bg); border-radius: 12px; border: 1px solid var(--border-color); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); padding: 30px 25px; text-align: center; animation: fadeInUp 0.6s ease-out backwards; }
-        .stats-grid .stat-card:nth-child(1) { animation-delay: 0.2s; }
-        .stats-grid .stat-card:nth-child(2) { animation-delay: 0.3s; }
-        .stats-grid .stat-card:nth-child(3) { animation-delay: 0.4s; }
-        .stat-icon { font-size: 2.2rem; color: var(--accent-1); margin-bottom: 15px; }
-        .stat-value { font-size: 2rem; font-weight: 700; color: var(--text-primary); display: block; margin-bottom: 5px; }
-        .stat-label { font-size: 1rem; color: var(--text-secondary); }
+        #platform-stats { padding: 70px 0; background-color: var(--primary-bg); /* Off-white bg */ }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+        .stat-card {
+            background: var(--secondary-bg); /* White cards */
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            padding: 30px 25px; text-align: center;
+            box-shadow: var(--shadow-sm); /* Lighter shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 0.5s ease-out backwards;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        .stats-grid .stat-card:nth-child(1) { animation-delay: 0.1s; }
+        .stats-grid .stat-card:nth-child(2) { animation-delay: 0.2s; }
+        .stats-grid .stat-card:nth-child(3) { animation-delay: 0.3s; }
+        .stat-icon { font-size: 2rem; color: var(--accent-1); margin-bottom: 15px; }
+        .stat-value { font-size: 1.8rem; font-weight: 600; color: var(--text-primary); display: block; margin-bottom: 5px; }
+        .stat-label { font-size: 0.95rem; color: var(--text-secondary); }
 
 
         /* Wallet Features Section */
-        #wallet-features { background: var(--secondary-bg); }
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .feature-item { display: flex; align-items: flex-start; gap: 20px; padding: 25px; border: 1px solid var(--tertiary-bg); border-radius: 10px; transition: background-color 0.3s ease; animation: fadeInUp 0.6s ease-out backwards; }
+        #wallet-features { background: var(--secondary-bg); /* White bg */ border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .feature-item {
+            display: flex; align-items: flex-start; gap: 20px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: var(--primary-bg); /* Slight contrast bg */
+            transition: background-color 0.3s ease;
+            animation: fadeInUp 0.5s ease-out backwards;
+        }
         .features-grid .feature-item:nth-child(1) { animation-delay: 0.1s; }
         .features-grid .feature-item:nth-child(2) { animation-delay: 0.2s; }
         .features-grid .feature-item:nth-child(3) { animation-delay: 0.3s; }
         .features-grid .feature-item:nth-child(4) { animation-delay: 0.4s; }
-        .feature-item:hover { background-color: var(--tertiary-bg); }
-        .feature-icon { font-size: 1.8rem; color: var(--accent-2); flex-shrink: 0; margin-top: 3px; }
-        .feature-content h3 { font-size: 1.15rem; margin-bottom: 8px; color: var(--text-primary); }
-        .feature-content p { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 0; }
-
-
-        /* Main CTA Section */
-        #main-cta { background-color: transparent; text-align: center; padding: 60px 0;}
-        #main-cta h2 { margin-bottom: 15px; }
-        #main-cta p { max-width: 600px; margin: 0 auto 30px auto; font-size: 1.1rem; }
-        #main-cta .btn { width: auto; }
+        .feature-item:hover { background-color: #e2e8f0; } /* Hover effect */
+        .feature-icon { font-size: 1.6rem; color: var(--accent-2); flex-shrink: 0; margin-top: 4px; }
+        .feature-content h3 { font-size: 1.1rem; margin-bottom: 8px; color: var(--text-primary); }
+        .feature-content p { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0; line-height: 1.6; }
 
 
         /* How it Works Section */
-        #how-it-works { background-color: var(--secondary-bg); } /* Solid dark */
-        .how-it-works-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; text-align: center; }
-        .how-it-works-step { animation: fadeInUp 0.6s ease-out backwards; }
+        #how-it-works { background-color: var(--primary-bg); /* Off-white bg */ }
+        .how-it-works-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 35px; text-align: center; }
+        .how-it-works-step { animation: fadeInUp 0.5s ease-out backwards; padding: 20px; border-radius: 8px; transition: background-color 0.3s ease;}
+        .how-it-works-step:hover { background-color: var(--secondary-bg); box-shadow: var(--shadow-sm); } /* Subtle hover */
         .how-it-works-grid .how-it-works-step:nth-child(1) { animation-delay: 0.1s; }
         .how-it-works-grid .how-it-works-step:nth-child(2) { animation-delay: 0.2s; }
         .how-it-works-grid .how-it-works-step:nth-child(3) { animation-delay: 0.3s; }
-        .step-icon { font-size: 2.5rem; color: #fff; background: var(--gradient-accent); width: 70px; height: 70px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 25px; box-shadow: 0 6px 15px rgba(139, 92, 246, 0.3); transition: transform 0.3s ease; }
-        .how-it-works-step:hover .step-icon { transform: translateY(-5px) scale(1.05); }
-        .how-it-works-step h3 { font-size: 1.2rem; margin-bottom: 10px; }
-        .how-it-works-step p { font-size: 0.95rem; color: var(--text-secondary); }
+        .step-icon { font-size: 2.2rem; color: #fff; background: var(--accent-gradient); width: 65px; height: 65px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(124, 58, 237, 0.3); transition: transform 0.3s ease; }
+        .how-it-works-step:hover .step-icon { transform: translateY(-4px) scale(1.05); }
+        .how-it-works-step h3 { font-size: 1.15rem; margin-bottom: 10px; }
+        .how-it-works-step p { font-size: 0.9rem; color: var(--text-secondary); }
+
+
+         /* Main CTA Section */
+         #main-cta { background-color: var(--secondary-bg); /* White bg */ text-align: center; padding: 60px 0; border-top: 1px solid var(--border-color);}
+         #main-cta h2 { margin-bottom: 15px; }
+         #main-cta p { max-width: 600px; margin: 0 auto 30px auto; font-size: 1.05rem; }
+         #main-cta .btn { width: auto; }
 
 
          /* FAQ Section */
-        #wallet-faq { background: var(--primary-bg); } /* Lighter bg for FAQ */
-        .faq-container { max-width: 850px; margin: 0 auto; }
-        .faq-item { background: var(--card-bg); margin-bottom: 15px; border-radius: 12px; border: 1px solid var(--border-color); overflow: hidden; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); animation: fadeInUp 0.5s ease-out backwards; }
+        #wallet-faq { background: var(--primary-bg); /* Off-white bg */ }
+        .faq-container { max-width: 800px; margin: 0 auto; } /* Slightly narrower */
+        .faq-item { background: var(--secondary-bg); margin-bottom: 12px; border-radius: 8px; border: 1px solid var(--border-color); overflow: hidden; box-shadow: var(--shadow-sm); animation: fadeInUp 0.4s ease-out backwards; }
         .faq-item:nth-child(odd) { animation-delay: 0.1s; }
         .faq-item:nth-child(even) { animation-delay: 0.2s; }
-        .faq-question { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 20px 25px; background: none; border: none; text-align: left; font-family: inherit; font-size: 1.1rem; font-weight: 500; color: var(--text-primary); cursor: pointer; transition: background-color 0.2s ease, color 0.2s ease; }
-        .faq-question:hover { background-color: rgba(51, 65, 85, 0.4); }
-        .faq-question.active { background-color: rgba(139, 92, 246, 0.15); color: #c4b5fd; }
-        .faq-question i { font-size: 1rem; transition: transform 0.3s ease; color: var(--accent-2); flex-shrink: 0; margin-left: 15px; }
-        .faq-question.active i { transform: rotate(180deg); color: #5eead4; }
-        .faq-answer { padding: 0 25px 0 25px; max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, padding 0.4s ease-out; border-top: 1px solid transparent; }
-        .faq-answer.active { max-height: 400px; padding-top: 20px; padding-bottom: 25px; border-top-color: var(--border-color); }
-        .faq-answer p { color: var(--text-secondary); line-height: 1.8; margin-bottom: 0.8em; }
-        .faq-answer ul { margin-left: 20px; margin-top: 10px; margin-bottom: 10px; color: var(--text-secondary); line-height: 1.8; }
-        .faq-answer li { margin-bottom: 8px; }
+        .faq-question { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 18px 25px; background: none; border: none; text-align: left; font-family: inherit; font-size: 1.05rem; font-weight: 500; color: var(--text-primary); cursor: pointer; transition: background-color 0.2s ease; }
+        .faq-question:hover { background-color: #f8fafc; } /* Very light hover */
+        .faq-question.active { background-color: rgba(124, 58, 237, 0.05); color: var(--accent-1); } /* Subtle active state */
+        .faq-question i { font-size: 0.9rem; transition: transform 0.3s ease; color: var(--accent-2); flex-shrink: 0; margin-left: 15px; }
+        .faq-question.active i { transform: rotate(180deg); }
+        .faq-answer { padding: 0 25px 0 25px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease-out, padding 0.35s ease-out; border-top: 1px solid transparent; }
+        .faq-answer.active { max-height: 350px; padding-top: 15px; padding-bottom: 20px; border-top-color: var(--border-color); }
+        .faq-answer p { color: var(--text-secondary); line-height: 1.7; margin-bottom: 0.8em; font-size: 0.95rem; }
+        .faq-answer ul { margin-left: 20px; margin-top: 10px; margin-bottom: 10px; color: var(--text-secondary); line-height: 1.7; font-size: 0.95rem;}
+        .faq-answer li { margin-bottom: 6px; }
 
 
         /* Final Get Started CTA */
         #final-cta {
-            background: var(--secondary-bg); padding: 70px 0; text-align: center;
+            background: var(--secondary-bg); padding: 60px 0; text-align: center;
+            border-top: 1px solid var(--border-color);
         }
         #final-cta h2 { margin-bottom: 15px; }
-        #final-cta p { color: var(--text-secondary); max-width: 600px; margin: 0 auto 30px auto; font-size: 1.1rem; }
+        #final-cta p { color: var(--text-secondary); max-width: 600px; margin: 0 auto 30px auto; font-size: 1.05rem; }
 
 
         /* Contact / Support Links */
-        #support-links { background-color: transparent; text-align: center; padding: 60px 0 80px 0; }
-        #support-links h2 { margin-bottom: 15px; font-size: 1.8rem; }
+        #support-links { background-color: var(--primary-bg); text-align: center; padding: 60px 0 70px 0; }
+        #support-links h2 { margin-bottom: 15px; font-size: 1.7rem; }
         #support-links p { max-width: 600px; margin: 0 auto 35px auto; }
-        .support-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .support-buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
         #support-links .btn { width: auto; }
 
 
         /* --- Footer --- */
-        .main-footer { background-color: #0f172a; color: #94a3b8; padding: 50px 0 20px 0; margin-top: auto; border-top: 1px solid var(--tertiary-bg); }
+        .main-footer { background-color: #0f172a; /* Dark footer for contrast */ color: #cbd5e1; /* Lighter text on dark */ padding: 50px 0 20px 0; margin-top: auto; border-top: 1px solid #334155; /* Darker border */ }
         .main-footer .container { }
         .footer-content { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px; margin-bottom: 40px; }
         .footer-col { flex: 1; min-width: 200px; margin-bottom: 20px; }
-        .footer-col h4 { color: var(--text-primary); margin-bottom: 20px; font-size: 1.1rem; font-weight: 600; position: relative; padding-bottom: 10px; }
-        .footer-col h4::after { content: ''; position: absolute; left: 0; bottom: 0; width: 40px; height: 2px; background: var(--gradient-accent); }
+        .footer-col h4 { color: #f1f5f9; /* Brighter heading on dark */ margin-bottom: 20px; font-size: 1.05rem; font-weight: 600; position: relative; padding-bottom: 10px; }
+        .footer-col h4::after { content: ''; position: absolute; left: 0; bottom: 0; width: 35px; height: 2px; background: var(--accent-gradient); }
         .footer-col ul { list-style: none; padding: 0; }
-        .footer-col ul li { margin-bottom: 12px; }
-        .footer-col ul li a { color: #94a3b8; transition: color 0.3s ease, padding-left 0.3s ease; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a { color: #94a3b8; transition: color 0.3s ease, padding-left 0.3s ease; font-size: 0.9rem; }
         .footer-col ul li a:hover { color: var(--accent-2); padding-left: 5px; text-decoration: none; }
-        .footer-socials a { display: inline-block; color: #94a3b8; background-color: rgba(51, 65, 85, 0.5); width: 40px; height: 40px; line-height: 40px; border-radius: 50%; text-align: center; margin-right: 10px; font-size: 1rem; transition: all 0.3s ease; }
-        .footer-socials a:hover { background-color: var(--accent-2); color: var(--primary-bg); transform: scale(1.1); text-decoration: none; }
-        .footer-bottom { border-top: 1px solid var(--tertiary-bg); padding-top: 25px; text-align: center; font-size: 0.9rem; color: #64748b; }
+        .footer-socials { display: none; /* Hidden as per original */ }
+        .footer-socials a { display: inline-block; color: #94a3b8; background-color: #1e293b; width: 36px; height: 36px; line-height: 36px; border-radius: 50%; text-align: center; margin-right: 8px; font-size: 0.9rem; transition: all 0.3s ease; }
+        .footer-socials a:hover { background-color: var(--accent-2); color: #fff; transform: scale(1.1); text-decoration: none; }
+        .footer-bottom { border-top: 1px solid #334155; padding-top: 25px; text-align: center; font-size: 0.85rem; color: #64748b; }
 
 
         /* --- Animations --- */
-        @keyframes fadeInScaleUp { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes slideDown { from { opacity: 0; transform: translateY(-100%); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes float { 0% { transform: translateY(0px) translateX(0px) rotate(0deg); } 50% { transform: translateY(-25px) translateX(20px) rotate(8deg); } 100% { transform: translateY(0px) translateX(0px) rotate(0deg); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        /* Removed heavier animations like float, slideDown */
 
 
         /* --- Responsive Design --- */
         @media (max-width: 992px) {
-             h1 { font-size: 2.6rem; } h2 { font-size: 1.9rem; } section { padding: 70px 0; }
-             #wallet-landing-hero { padding: 100px 0 80px 0; }
-             /* Responsive Fix: Adjust columns */
+             h1 { font-size: 2.4rem; } h2 { font-size: 1.8rem; } section { padding: 60px 0; }
+             #wallet-landing-hero { padding: 70px 0 60px 0; }
              .stats-grid { grid-template-columns: repeat(2, 1fr); }
              .features-grid { grid-template-columns: repeat(2, 1fr); }
              .how-it-works-grid { grid-template-columns: repeat(2, 1fr); }
 
              /* Responsive Nav */
             .menu-toggle { display: block; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); }
-            .main-nav { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: rgba(15, 23, 42, 0.98); padding: 15px 0; backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); text-align: center; }
+            .main-nav { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: rgba(255, 255, 255, 0.98); padding: 10px 0; box-shadow: var(--shadow-md); border-top: 1px solid var(--border-color); text-align: center; }
             .main-nav.active { display: flex; }
-            .main-nav a { margin: 10px 20px; padding: 10px 0; width: auto; color: var(--text-secondary);}
-            .main-nav a:hover { color: var(--text-primary); background: rgba(51, 65, 85, 0.3); border-radius: 5px;}
+            .main-nav a { margin: 8px 20px; padding: 8px 0; width: auto; color: var(--text-secondary); }
+            .main-nav a:hover { color: var(--text-primary); background: rgba(226, 232, 240, 0.5); border-radius: 5px;}
             .main-nav a::after { display: none; }
         }
 
         @media (max-width: 768px) {
-             h1 { font-size: 2.2rem; } h2 { font-size: 1.8rem; }
-             #wallet-landing-hero p.subtitle { font-size: 1.15rem; }
-             .hero-actions { gap: 15px; }
-             /* Responsive Fix: Stack grids earlier */
-             .stats-grid { grid-template-columns: 1fr; gap: 25px;}
+             h1 { font-size: 2.1rem; } h2 { font-size: 1.6rem; }
+             #wallet-landing-hero p.subtitle { font-size: 1.05rem; }
+             .hero-actions { gap: 12px; }
+             /* Stack grids earlier */
+             .stats-grid { grid-template-columns: 1fr; gap: 20px;}
              .features-grid { grid-template-columns: 1fr; }
-             .how-it-works-grid { grid-template-columns: 1fr; }
+             .how-it-works-grid { grid-template-columns: 1fr; gap: 25px; }
              .feature-item { flex-direction: column; align-items: center; text-align: center; gap: 15px; }
              .feature-icon { margin-bottom: 10px; }
-             .faq-question { padding: 18px 20px; font-size: 1rem;}
+             .faq-question { padding: 15px 20px; font-size: 1rem;}
              .faq-answer { padding: 0 20px 0 20px; }
              .faq-answer.active { padding-top: 15px; padding-bottom: 20px;}
              .footer-content { text-align: center; }
-             .footer-col { flex-basis: 100%; margin-bottom: 30px; align-items: center; }
+             .footer-col { flex-basis: 100%; margin-bottom: 30px; display: flex; flex-direction: column; align-items: center; }
              .footer-col h4::after { left: 50%; transform: translateX(-50%); }
              .footer-col ul li a:hover { padding-left: 0; }
              .support-buttons { flex-direction: column; align-items: center; }
-             .support-buttons .btn { width: 80%; max-width: 300px; margin-bottom: 10px; }
+             .support-buttons .btn { width: 80%; max-width: 280px; margin-bottom: 10px; }
         }
 
         @media (max-width: 576px) {
              body { font-size: 15px; }
-             h1 { font-size: 2rem; } h2 { font-size: 1.6rem; } h3 { font-size: 1.1rem; }
-             .logo { font-size: 1.4rem; }
+             h1 { font-size: 1.9rem; } h2 { font-size: 1.5rem; } h3 { font-size: 1.05rem; }
+             .logo { font-size: 1.3rem; }
              .container, .container-narrow { padding: 0 15px; }
-             section { padding: 60px 0; }
-             #wallet-landing-hero { padding: 80px 0 60px 0; }
-             #wallet-landing-hero p.subtitle { font-size: 1.05rem; }
+             section { padding: 50px 0; }
+             #wallet-landing-hero { padding: 60px 0 50px 0; }
+             #wallet-landing-hero p.subtitle { font-size: 1rem; }
              .hero-actions { flex-direction: column; align-items: center; }
-             .hero-actions .btn { width: 80%; max-width: 300px; margin-bottom: 10px; }
-             .stat-card { padding: 25px 20px; }
-             .stat-value { font-size: 1.6rem; }
-             .how-it-works-step { padding-bottom: 20px; }
-             #main-cta, #final-cta, #support-links { padding: 50px 0; } /* Adjusted CTA padding */
-             .faq-question { padding: 15px; font-size: 0.95rem;}
+             .hero-actions .btn { width: 85%; max-width: 280px; margin-bottom: 10px; padding: 10px 25px; font-size: 0.9rem; }
+             .content-card, .stat-card { padding: 25px 20px; }
+             .stat-value { font-size: 1.5rem; }
+             .how-it-works-step { padding: 15px; }
+             #main-cta, #final-cta, #support-links { padding: 45px 0; } /* Adjusted CTA padding */
+             .faq-question { padding: 14px 15px; font-size: 0.9rem;}
              .faq-answer { padding: 0 15px 0 15px; }
-             .faq-answer.active { padding-top: 15px; padding-bottom: 15px;}
+             .faq-answer p, .faq-answer ul { font-size: 0.9rem; }
+             .faq-answer.active { padding-top: 10px; padding-bottom: 15px;}
+             .notice-content { flex-direction: column; gap: 8px; text-align: center; }
+             .notice-text { font-size: 0.85rem;}
         }
 
     </style>
 </head>
 <body>
-    <!-- Abstract Background Shapes -->
-    <div class="shape shape-1"></div>
-    <div class="shape shape-2"></div>
-    <div class="shape shape-3"></div>
-
     <!-- Header -->
     <header class="main-header">
         <div class="container">
-            <a href="https://pay-yourinspireit.github.io" class="logo"><i class="fas fa-wallet" style="color: #2dd4bf;"></i> Your<span>Inspire</span>IT</a>
+            <a href="https://pay-yourinspireit.github.io" class="logo"><i class="fas fa-wallet"></i> Your<span>Inspire</span>IT</a>
             <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
              <nav class="main-nav" id="main-nav">
-              
                  <a href="wallet-info.html" class="active-nav">Wallet</a>
                  <a href="https://YrInspireIT.github.io/works">Works</a>
                  <a href="https://YrInspireIT.github.io/faq">FAQ</a>
@@ -313,18 +343,18 @@
     </header>
 
     <main>
-        <!-- Wallet Landing Hero Section (Logged Out) -->
+        <!-- Wallet Landing Hero Section -->
         <section id="wallet-landing-hero">
             <div class="container">
                 <h1>Manage Your Earnings, Effortlessly.</h1>
-                <p class="subtitle"> ‘Your Inspire IT Wallet’ : আপনার কাজ থেকে অনলাইন ইনকাম ট্র্যাক করা এবং খুব সহজে টাকা তোলার জন্য একটি নিরাপদ ও স্বচ্ছ প্ল্যাটফর্ম।</p>
+                <p class="subtitle">‘Your Inspire IT Wallet’ : আপনার কাজ থেকে অনলাইন ইনকাম ট্র্যাক করা এবং খুব সহজে টাকা তোলার জন্য একটি নিরাপদ ও স্বচ্ছ প্ল্যাটফর্ম।</p>
                 <div class="hero-actions">
                     <a href="https://YrInspireIT.github.io/signup" class="btn"><i class="fas fa-user-plus"></i> Get Started Free</a>
                     <a href="/login" class="btn btn-outline"><i class="fas fa-sign-in-alt"></i> Access Your Wallet</a>
                 </div>
             </div>
         </section>
-<br><br>
+
         <!-- Notice Section -->
         <section id="notice-section">
              <div class="container">
@@ -338,8 +368,8 @@
         <!-- Platform Stats Section -->
         <section id="platform-stats">
             <div class="container">
-                 <div class="section-title" style="margin-bottom: 50px;">
-                     <h2>Trusted by a Growing Global Community</h2>
+                 <div class="section-title" style="margin-bottom: 40px;">
+                     <h2>Trusted by a Growing Community</h2>
                      <!-- Optional: Add a short sentence here -->
                  </div>
                 <div class="stats-grid">
@@ -349,7 +379,7 @@
                         <h3 class="stat-label">Active Users</h3>
                     </div>
                      <div class="stat-card">
-                        <i class="fas fa-hand-holding-usd stat-icon"></i>
+                        <i class="fas fa-hand-holding-dollar stat-icon"></i> <!-- Changed icon slightly -->
                         <span class="stat-value">৳787k+</span>
                         <h3 class="stat-label">Paid Out</h3>
                     </div>
@@ -371,20 +401,20 @@
                 </div>
                  <div class="features-grid">
                      <div class="feature-item">
-                         <i class="fas fa-lock feature-icon"></i>
+                         <i class="fas fa-shield-alt feature-icon"></i> <!-- Changed icon -->
                          <div class="feature-content"><h3>Bank-Grade Security</h3><p>শক্তিশালী এনক্রিপশন এবং প্রোটোকল আপনার টাকা এবং ডেটা সুরক্ষিত রাখে।</p></div>
                      </div>
                       <div class="feature-item">
-                         <i class="fas fa-eye feature-icon"></i>
-                         <div class="feature-content"><h3>Full Transparency</h3><p>একটি স্বচ্ছ, বিস্তারিত ইতিহাস সহ প্রতিটি ইনকাম এবং Withdraw এর জন্য সকল তথ্য দেখানো!</p></div>
+                         <i class="fas fa-file-invoice-dollar feature-icon"></i> <!-- Changed icon -->
+                         <div class="feature-content"><h3>Full Transparency</h3><p>একটি স্বচ্ছ, বিস্তারিত ইতিহাস সহ প্রতিটি ইনকাম এবং Withdraw এর জন্য সকল তথ্য দেখুন।</p></div>
                      </div>
                       <div class="feature-item">
-                         <i class="fas fa-random feature-icon"></i>
+                         <i class="fas fa-exchange-alt feature-icon"></i> <!-- Changed icon -->
                          <div class="feature-content"><h3>Flexible Payouts</h3><p>বিকাশ, নগদ, রকেট, পেপ্যাল, ব্যাংক ট্রান্সফার এবং আরও অনেক জনপ্রিয় পদ্ধতি থেকে বেছে নিন।</p></div>
                      </div>
                       <div class="feature-item">
-                         <i class="fas fa-puzzle-piece feature-icon"></i>
-                         <div class="feature-content"><h3>Seamless Integration</h3><p> ভালোভাবে পরিচালনার জন্য কমপ্লিট কাজগুলি থেকে টাকা স্বয়ংক্রিয়ভাবে এখানে জমা হয়।</p></div>
+                         <i class="fas fa-sync-alt feature-icon"></i> <!-- Changed icon -->
+                         <div class="feature-content"><h3>Seamless Integration</h3><p>ভালোভাবে পরিচালনার জন্য কমপ্লিট কাজগুলি থেকে টাকা স্বয়ংক্রিয়ভাবে এখানে জমা হয়।</p></div>
                      </div>
                  </div>
             </div>
@@ -404,28 +434,28 @@
                       </div>
                      <div class="how-it-works-step">
                           <div class="step-icon"><i class="fas fa-wallet"></i></div>
-                          <h3>2. Earn & Track</h3> <p>আপনার টাস্ক থেকে উপার্জিত টাকা এখানে জমা হবে! </p>
+                          <h3>2. Earn & Track</h3> <p>আপনার টাস্ক থেকে উপার্জিত টাকা এখানে জমা হবে এবং ট্র্যাক করতে পারবেন।</p>
                       </div>
                       <div class="how-it-works-step">
                           <div class="step-icon"><i class="fas fa-hand-holding-usd"></i></div>
-                          <h3>3. Withdraw Funds</h3><p>বিকাশ,নগদ,রকেটের মাধ্যমে আপনার টাকা উইথড্র করুন!</p>
+                          <h3>3. Withdraw Funds</h3><p>বিকাশ, নগদ, রকেট সহ আপনার পছন্দের মাধ্যমে টাকা উইথড্র করুন!</p>
                       </div>
                  </div>
             </div>
         </section>
 
-         <!-- Main CTA Section (Added) -->
+         <!-- Main CTA Section -->
          <section id="main-cta">
               <div class="container">
                   <div class="section-title">
                        <h2>Explore Earning Opportunities</h2>
-                       <p>Your Inspire IT <i>Wallet</i> ব্যবহারের জন্য প্রস্তুত? আজই ইনকাম শুরু করার জন্য আপনি যে কাজগুলি সম্পন্ন করতে পারেন তার একটি তালিকা পেয়ে যান করুন।</p>
+                       <p>Your Inspire IT <i>Wallet</i> ব্যবহারের জন্য প্রস্তুত? আজই ইনকাম শুরু করার জন্য আপনি যে কাজগুলি সম্পন্ন করতে পারেন তার তালিকা দেখুন।</p>
                        <a href="https://YrInspireIT.github.io/works" class="btn"><i class="fas fa-briefcase"></i> Browse Tasks Now</a>
                   </div>
               </div>
          </section>
 
-         <!-- FAQ Section (Added) -->
+         <!-- FAQ Section -->
         <section id="wallet-faq">
             <div class="container-narrow">
                  <div class="section-title">
@@ -434,15 +464,15 @@
                 </div>
                 <div class="faq-container">
                     <!-- FAQ Item 1 -->
-                    <div class="faq-item"> <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-w1"> <span>How do I withdraw my earnings?</span> <i class="fas fa-chevron-down"></i> </button> <div class="faq-answer" id="faq-answer-w1"> <p>Once logged in, navigate to the 'Withdraw' or 'Wallet' section. Select your preferred payment method, enter the amount (meeting the minimum threshold), and confirm. Follow any verification steps.</p> </div> </div>
+                    <div class="faq-item"> <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-w1"> <span>How do I withdraw my earnings?</span> <i class="fas fa-chevron-down"></i> </button> <div class="faq-answer" id="faq-answer-w1"> <p>Once logged in, navigate to the 'Withdraw' or 'Wallet' section. Select your preferred payment method (e.g., Bkash, Nagad), enter the amount (meeting the minimum threshold), and confirm. Follow any necessary verification steps.</p> </div> </div>
                     <!-- FAQ Item 2 -->
-                     <div class="faq-item"> <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-w2"> <span>What is the minimum withdrawal amount?</span> <i class="fas fa-chevron-down"></i> </button> <div class="faq-answer" id="faq-answer-w2"> <p>This varies by payment method. The specific minimum for each option is displayed clearly when you initiate a withdrawal.</p> </div> </div>
+                     <div class="faq-item"> <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-w2"> <span>What is the minimum withdrawal amount?</span> <i class="fas fa-chevron-down"></i> </button> <div class="faq-answer" id="faq-answer-w2"> <p>The minimum withdrawal amount can vary depending on the chosen payment method. The specific minimum for each option (like Bkash, Nagad, Rocket) is clearly displayed when you start the withdrawal process.</p> </div> </div>
                     <!-- FAQ Item 3 -->
-                    <div class="faq-item"> <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-w3"> <span>How long does payment take?</span> <i class="fas fa-chevron-down"></i> </button> <div class="faq-answer" id="faq-answer-w3"> <p>Typically 3-7 business days after approval, but this can depend on your chosen method and bank processing times.</p> </div> </div>
+                    <div class="faq-item"> <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-w3"> <span>How long does payment take?</span> <i class="fas fa-chevron-down"></i> </button> <div class="faq-answer" id="faq-answer-w3"> <p>Withdrawals are typically processed within 3-7 business days after your request is reviewed and approved. Processing times might slightly vary based on the payment provider.</p> </div> </div>
                     <!-- FAQ Item 4 -->
-                     <div class="faq-item"> <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-w4"> <span>Are there withdrawal fees?</span> <i class="fas fa-chevron-down"></i> </button> <div class="faq-answer" id="faq-answer-w4"> <p>EarnWell minimizes fees, but payment processors (like PayPal) may have their own. Any applicable fees are shown during the withdrawal process.</p> </div> </div>
+                     <div class="faq-item"> <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-w4"> <span>Are there withdrawal fees?</span> <i class="fas fa-chevron-down"></i> </button> <div class="faq-answer" id="faq-answer-w4"> <p>Your Inspire IT aims to keep fees low. However, some payment methods (like mobile banking or international transfers) might have small processing fees charged by the provider themselves. Any applicable fees from our side or the provider will be clearly shown before you confirm the withdrawal.</p> </div> </div>
                 </div>
-                 <div style="text-align: center; margin-top: 40px;">
+                 <div style="text-align: center; margin-top: 35px;">
                      <a href="https://YrInspireIT.github.io/faq" class="btn btn-outline">View More FAQs</a>
                  </div>
             </div>
@@ -479,7 +509,8 @@
             <div class="footer-content">
                  <div class="footer-col"><h4>About Us</h4><ul><li><a href="https://YrInspireIT.github.io/about">Our Mission</a></li><li><a href="https://YrInspireIT.github.io/#how-it-works">How it Works</a></li><li><a href="https://YrInspireIT.github.io/error">Blog</a></li></ul></div>
                  <div class="footer-col"><h4>Support</h4><ul><li><a href="https://YrInspireIT.github.io/faq">Help Center / FAQ</a></li><li><a href="https://YrInspireIT.github.io/contact">Contact Us</a></li><li><a href="https://YrInspireIT.github.io/report">Report</a></li><li><a href="https://YrInspireIT.github.io/error">Payment Info</a></li></ul></div>
-                 <div class="footer-col"><h4>Legal & Transparency</h4><ul><li><a href="https://YrInspireIT.github.io/error">Terms of Service</a></li><li><a href="https://YrInspireIT.github.io/error">Privacy Policy</a></li><li><a href="https://YrInspireIT.github.io/error">Cookie Policy</a></li><li><a href="https://YrInspireIT.github.io/error">Earning Disclaimer</a></li></ul></div>
+                 <div class="footer-col"><h4>Legal</h4><ul><li><a href="https://YrInspireIT.github.io/error">Terms of Service</a></li><li><a href="https://YrInspireIT.github.io/error">Privacy Policy</a></li><li><a href="https://YrInspireIT.github.io/error">Cookie Policy</a></li><li><a href="https://YrInspireIT.github.io/error">Earning Disclaimer</a></li></ul></div>
+                 <!-- Socials still hidden based on original code -->
                  <div class="footer-col" style="display: none;"><h4>Connect With Us</h4><div class="footer-socials"><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a><a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></div></div>
             </div>
             <div class="footer-bottom">
@@ -499,9 +530,11 @@
                 if (mainNav.classList.contains('active')) {
                     icon.classList.remove('fa-bars');
                     icon.classList.add('fa-times');
+                    menuToggle.setAttribute('aria-expanded', 'true');
                 } else {
                     icon.classList.remove('fa-times');
                     icon.classList.add('fa-bars');
+                    menuToggle.setAttribute('aria-expanded', 'false');
                 }
             });
              // Optional: Close menu when a link inside is clicked
@@ -512,6 +545,7 @@
                          const icon = menuToggle.querySelector('i');
                          icon.classList.remove('fa-times');
                          icon.classList.add('fa-bars');
+                         menuToggle.setAttribute('aria-expanded', 'false');
                     }
                 });
              });
@@ -520,68 +554,80 @@
         // --- FAQ Accordion ---
         const faqQuestions = document.querySelectorAll('.faq-question');
         faqQuestions.forEach(button => {
-            button.addEventListener('click', () => {
-                const answer = document.getElementById(button.getAttribute('aria-controls'));
-                const isActive = button.getAttribute('aria-expanded') === 'true';
-                button.setAttribute('aria-expanded', !isActive);
-                answer.hidden = isActive;
-                button.classList.toggle('active');
-                answer.classList.toggle('active');
-                const icon = button.querySelector('i');
-                icon.classList.toggle('fa-chevron-down');
-                icon.classList.toggle('fa-chevron-up');
-                if (!isActive) {
-                     answer.style.maxHeight = answer.scrollHeight + 'px';
-                 } else {
-                     answer.style.maxHeight = '0';
-                 }
-            });
-             // Initialize state
-            const initialAnswer = document.getElementById(button.getAttribute('aria-controls'));
-            if (button.getAttribute('aria-expanded') === 'false') {
-                initialAnswer.hidden = true; initialAnswer.style.maxHeight = '0';
-                button.querySelector('i').classList.add('fa-chevron-down'); button.querySelector('i').classList.remove('fa-chevron-up');
+            const answer = document.getElementById(button.getAttribute('aria-controls'));
+            const icon = button.querySelector('i');
+
+            // Initial setup based on aria-expanded
+            const isInitiallyExpanded = button.getAttribute('aria-expanded') === 'true';
+            answer.hidden = !isInitiallyExpanded;
+            answer.style.maxHeight = isInitiallyExpanded ? answer.scrollHeight + 'px' : '0';
+            if(isInitiallyExpanded) {
+                 button.classList.add('active');
+                 icon.classList.remove('fa-chevron-down');
+                 icon.classList.add('fa-chevron-up'); // Use chevron-up for expanded
             } else {
-                 initialAnswer.hidden = false; initialAnswer.style.maxHeight = initialAnswer.scrollHeight + 'px';
-                 button.querySelector('i').classList.add('fa-chevron-up'); button.querySelector('i').classList.remove('fa-chevron-down');
+                button.classList.remove('active');
+                icon.classList.remove('fa-chevron-up');
+                 icon.classList.add('fa-chevron-down');
             }
+
+
+            button.addEventListener('click', () => {
+                const isCurrentlyExpanded = button.getAttribute('aria-expanded') === 'true';
+
+                // Toggle aria-expanded
+                button.setAttribute('aria-expanded', !isCurrentlyExpanded);
+
+                // Toggle classes and styles
+                button.classList.toggle('active');
+                answer.hidden = isCurrentlyExpanded; // Hide if it was expanded, show if it was collapsed
+
+                if (!isCurrentlyExpanded) {
+                    // Expand
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                    answer.classList.add('active'); // Add active class to answer for styling if needed
+                } else {
+                    // Collapse
+                    answer.style.maxHeight = '0';
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                    answer.classList.remove('active'); // Remove active class from answer
+                }
+            });
         });
-        
-        
-        
-                // --- প্রয়োজনীয়: কুকি পড়ার ফাংশন ---
-// এই ফাংশনটি অবশ্যই এই স্ক্রিপ্টের আগে লোড হতে হবে অথবা এর মধ্যেই থাকতে হবে।
-function getCookie(name) {
-    const nameEQ = name + "=";
-    const ca = document.cookie.split(';');
-    for(let i = 0; i < ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-    }
-    return null;
-}
-
-// --- রিডাইরেকশন লজিক ---
-(function() {
-    const cookieNameToCheck = 'walletSessionUser'; // যে কুকির নাম চেক করতে চান
-    const redirectUrl = 'https://pay-yourinspireit.github.io/sorry'; // যেখানে রিডাইরেক্ট করতে চান
-
-    const userSession = getCookie(cookieNameToCheck);
-
-    if (userSession && userSession !== '') {
-        // কুকি পাওয়া গেছে এবং খালি নয়
-        console.log(`Cookie '${cookieNameToCheck}' found with value '${userSession}'. Redirecting to ${redirectUrl}`);
-        window.location.href = redirectUrl;
-    } else {
-        // কুকি পাওয়া যায়নি অথবা খালি
-        console.log(`Cookie '${cookieNameToCheck}' not found or is empty. No redirect.`);
-        // এখানে আপনি চাইলে অন্য কোনো কাজ করতে পারেন, যেমন লগইন ফর্ম দেখানো
-    }
-})(); // ফাংশনটি অবিলম্বে কল করা হচ্ছে (Immediately Invoked Function Expression - IIFE)
 
 
+        // --- প্রয়োজনীয়: কুকি পড়ার ফাংশন ---
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for(let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
 
+        // --- রিডাইরেকশন লজিক ---
+        (function() {
+            const cookieNameToCheck = 'walletSessionUser'; // কুকির নাম
+            const redirectUrl = 'https://pay-yourinspireit.github.io/sorry'; // যেখানে রিডাইরেক্ট করবে
+
+            const userSession = getCookie(cookieNameToCheck);
+
+            // কুকি আছে এবং খালি নয় কিনা চেক করুন
+            if (userSession && userSession.trim() !== '') {
+                console.log(`Cookie '${cookieNameToCheck}' found. Redirecting to ${redirectUrl}`);
+                // ব্যবহারকারী লগইন করা থাকলে এই পেজ না দেখিয়ে অন্য পেজে রিডাইরেক্ট করুন
+                window.location.replace(redirectUrl); // replace ব্যবহার করলে ব্রাউজার হিস্টোরিতে এই পেজ থাকবে না
+            } else {
+                // কুকি নেই বা খালি, তাই এই পেজ দেখান
+                console.log(`Cookie '${cookieNameToCheck}' not found or is empty. Showing current page.`);
+            }
+        })(); // Immediately Invoked Function Expression (IIFE)
 
     </script>
 
